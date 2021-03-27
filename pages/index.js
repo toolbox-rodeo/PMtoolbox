@@ -1,5 +1,4 @@
 import Container from '../components/container'
-import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
@@ -14,7 +13,6 @@ export default function Index({ preview, allPosts }) {
         </Head>
 
         <Container>
-          <Intro />
           {allPosts.length > 0 &&
             <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
               {allPosts.map((post) => (

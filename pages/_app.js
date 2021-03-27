@@ -2,7 +2,7 @@ import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import Head from 'next/head'
-
+import NavBar from "../components/navbar";
 import '../styles/index.css'
 import theme from '../chakra-theme'
 
@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
         {/* Import CSS for nprogress */}
         <link rel="stylesheet" type="text/css" href="/nprogress.css" />
       </Head>
+      <NavBar/>
       <ChakraProvider resetCSS theme={theme}>
         <ColorModeProvider
           options={{
