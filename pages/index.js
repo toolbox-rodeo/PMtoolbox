@@ -1,34 +1,36 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import PostPreview from "../components/post-preview";
 
 export default function Index({ preview, allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
   return (
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Product manager Toolbox</title>
         </Head>
+
         <Container>
           <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {allPosts.length > 0 &&
+            <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
+              {allPosts.map((post) => (
+                <PostPreview
+                  key={post.slug}
+                  title={post.title}
+                  coverImage={post.coverImage}
+                  slug={post.slug}
+                  excerpt={post.excerpt}
+                  duration={post.duration}
+                  peopleNeeded={post.peopleNeeded}
+                  tags={post.tags}
+                />
+              ))}
+            </div>
+          }
         </Container>
       </Layout>
     </>

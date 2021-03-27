@@ -1,22 +1,44 @@
-import { Box } from '@chakra-ui/react'
+import { Button, Box, Heading, Badge, Text, HStack, Icon } from '@chakra-ui/react'
+import { FaClock, FaUserFriends } from 'react-icons/fa';
+
 import Link from 'next/link'
-import Avatar from '../components/avatar'
 
 export default function PostPreview({
   title,
   excerpt,
-  author,
   slug,
+  duration,
+  peopleNeeded,
+  tags = []
 }) {
-  return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
-    </Box>
+  return (<>
+    <Link href={`/posts/${slug}`}>
+      <a>
+        <Box maxW="sm" p="5" borderWidth="1px" rounded="md" boxShadow="0px 1px 0px #E2DDD5">
+          <Heading size="md" mb="1">
+            {title}
+          </Heading>
+          <Box mb={6}>
+            {
+              tags.map(({ name, hex})=>{
+                <Badge>{name}</Badge>
+              })
+            }
+          </Box>
+          <Box>
+            <Text fontSize="sm">
+              {excerpt}
+            </Text>
+          </Box>
+          <HStack mt={6}>
+            <Icon viewBox="0 0 200 200" boxSize={3} as={FaClock} />
+            <Text fontSize="xs">{duration} min</Text>
+            <Icon viewBox="0 0 200 200" boxSize={4} as={FaUserFriends} />
+            <Text fontSize="xs">{peopleNeeded}+</Text>
+          </HStack>
+        </Box>
+      </a>
+    </Link>
+  </>
   )
 }
