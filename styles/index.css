@@ -1,5 +1,4 @@
-/* purgecss start ignore */
+/* ./styles/globals.css */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
 @tailwind utilities;

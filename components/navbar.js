@@ -1,6 +1,7 @@
 import {
   Box,
   Flex,
+  Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import Container from "./container";
@@ -19,7 +20,11 @@ export default function NavBar() {
             borderBottom={1}
             align={'center'}>
             <Link href="/">
-              <a className="hover:underline">PRODUCT TOOLBOX</a>
+              <a className="hover:underline font-bold">
+                <Text fontSize="lg">
+                  PRODUCT TOOLBOX
+                </Text>
+              </a>
             </Link>
           </Flex>
       </Container>

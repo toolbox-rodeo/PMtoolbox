@@ -3,7 +3,6 @@ import { FaClock, FaUserFriends } from 'react-icons/fa';
 
 import Link from 'next/link'
 
-
 export default function PostPreview({
   title,
   excerpt,
