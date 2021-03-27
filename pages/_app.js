@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   return<>
       <Head>
         {/* Import CSS for nprogress */}
-        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
+        <link rel="stylesheet" type="text/css" href="../styles/nprogress.css" />
       </Head>
       <NavBar/>
       <ChakraProvider resetCSS theme={theme}>
