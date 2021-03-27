@@ -26,7 +26,7 @@ export default function PostPreview({
   return (<>
     <Link href={`/posts/${slug}`}>
       <a>
-        <Box p="5" borderWidth="1px" rounded="md" boxShadow="0px 1px 0px #E2DDD5">
+        <Box p="5" borderWidth="1px" rounded="md" boxShadow="0px 1px 0px #E2DDD5" background="white">
           <Heading size="md" mb="1">
             {title}
           </Heading>
