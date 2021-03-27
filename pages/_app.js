@@ -4,6 +4,7 @@ import Router from 'next/router'
 import Head from 'next/head'
 import NavBar from "../components/navbar";
 import '../styles/index.css'
+import 'tailwindcss/tailwind.css'
 import theme from '../chakra-theme'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
