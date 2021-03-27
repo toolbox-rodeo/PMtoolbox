@@ -14,7 +14,7 @@ export default function Index({ preview, allPosts }) {
 
         <Container>
           {allPosts.length > 0 &&
-            <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
+            <div className="grid grid-cols-1 md:grid-cols-3 md:col-gap-3 lg:col-gap-3 row-gap-4 md:row-gap-4 mb-4">
               {allPosts.map((post) => (
                 <PostPreview
                   key={post.slug}
@@ -24,7 +24,7 @@ export default function Index({ preview, allPosts }) {
                   excerpt={post.excerpt}
                   duration={post.duration}
                   peopleNeeded={post.peopleNeeded}
-                  tags={post.tags}
+                  tags={post.tagsCollection.items}
                 />
               ))}
             </div>
