@@ -1,11 +1,11 @@
-name: Pull request
+name: Linting
 
 on:
   push:
     branches:
 
 jobs:
-  build-lint-typecheck:
+  now:
     runs-on: ubuntu-latest
 
     steps:
