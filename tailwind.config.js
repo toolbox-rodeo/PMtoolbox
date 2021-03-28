@@ -10,6 +10,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        'accent-0': '#fff',
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
