@@ -2,7 +2,6 @@ import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 import NProgress from "nprogress";
 import Router from "next/router";
 import Head from "next/head";
-import "typeface-work-sans";
 
 import Navbar from "../components/navbar";
 import theme from "../chakra-theme";
