@@ -4,7 +4,6 @@ import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
@@ -22,7 +21,7 @@ export default function Post({ post, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
+          <div className="max-w-2xl mx-auto pb-16">
             <article>
               <Head>
                 <title>
@@ -31,13 +30,14 @@ export default function Post({ post, preview }) {
                 <meta property="og:image" content={post.coverImage.url} />
               </Head>
               <PostHeader
+                tags={post.tagsCollection.items}
                 title={post.title}
-                coverImage={post.coverImage}
+                peopleNeeded={post.peopleNeeded}
+                duration={post.duration}
               />
               <PostBody content={post.content} />
             </article>
-            <SectionSeparator />
-          </>
+          </div>
         )}
       </Container>
     </Layout>
