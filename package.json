@@ -22,11 +22,9 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@tailwindcss/jit": "0.1.15",
     "autoprefixer": "^10.2.5",
-    "contentful-import": "^7.8.7",
     "postcss": "^8.2.8",
-    "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.4"
   },
   "license": "MIT"

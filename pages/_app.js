@@ -2,6 +2,7 @@ import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import Head from 'next/head'
+
 import NavBar from "../components/navbar";
 import theme from '../chakra-theme'
 import '../public/tailwind.css'
