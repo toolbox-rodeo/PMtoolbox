@@ -14,6 +14,7 @@ const theme = extendTheme({
   colors: {
     black: '#16161D',
     brown: {
+      100: "#E2DDD5",
       500: "#8E877B",
     }
   },
@@ -32,7 +33,7 @@ const theme = extendTheme({
   components: {
     Heading: {
       baseStyle: {
-        fontWeight: "bold", // Normally, it is "semibold"
+        fontWeight: "bold",
       },
       sizes: {
         md: {

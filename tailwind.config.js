@@ -33,8 +33,7 @@ module.exports = {
         '8xl': '6.25rem',
       },
       boxShadow: {
-        small: '0 5px 10px rgba(0, 0, 0, 0.12)',
-        medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
+        sm: "0px 1px 0px #E2DDD5",
       },
     },
   },
