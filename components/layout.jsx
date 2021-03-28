@@ -4,13 +4,15 @@ import Meta from "./meta";
 
 export default function Layout({ preview, children }) {
   return (
-    <div className="py-5">
-      <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
+    <>
+      <div className="py-4">
+        <Meta />
+        <div className="min-h-screen">
+          <Alert preview={preview} />
+          <main>{children}</main>
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
