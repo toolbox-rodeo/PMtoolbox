@@ -21,7 +21,7 @@ export default function Post({ post, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <div className="max-w-2xl mx-auto pb-16">
+          <div className="max-w-2xl mx-auto pb-40">
             <article>
               <Head>
                 <title>{post.title}</title>
