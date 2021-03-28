@@ -1,4 +1,4 @@
-import Container from './container'
+import Container from "./container";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
           </h3>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <a
-              href={"https://github.com/toolbox-rodeo/PMtoolbox"}
+              href="https://github.com/toolbox-rodeo/PMtoolbox"
               className="mx-3 hover:underline hover:text-success"
             >
               View on GitHub
@@ -19,5 +19,5 @@ export default function Footer() {
         </div>
       </Container>
     </footer>
-  )
+  );
 }

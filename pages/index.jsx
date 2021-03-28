@@ -1,20 +1,20 @@
-import Container from '../components/container'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
+import Head from "next/head";
+import Container from "../components/container";
+import Layout from "../components/layout";
+import { getAllPostsForHome } from "../lib/api";
 import PostPreview from "../components/post-preview";
 import CardsGrid from "../components/cards-grid";
 
 export default function Index({ preview, allPosts }) {
   return (
-    <div style={{background: "#F5F2F0"}}>
+    <div style={{ background: "#F5F2F0" }}>
       <Layout preview={preview}>
         <Head>
           <title>Product manager Toolbox</title>
         </Head>
 
         <Container>
-          {allPosts.length > 0 &&
+          {allPosts.length > 0 && (
             <CardsGrid>
               {allPosts.map((post) => (
                 <PostPreview
@@ -29,16 +29,16 @@ export default function Index({ preview, allPosts }) {
                 />
               ))}
             </CardsGrid>
-          }
+          )}
         </Container>
       </Layout>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = (await getAllPostsForHome(preview)) ?? []
+  const allPosts = (await getAllPostsForHome(preview)) ?? [];
   return {
     props: { preview, allPosts },
-  }
+  };
 }

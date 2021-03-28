@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true,
+    "jest/globals": true,
+    "shared-node-browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["jest", "prettier"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "class-methods-use-this": 0,
+    "import/prefer-default-export": 0,
+    "prettier/prettier": ["error"],
+    "jsx-a11y/anchor-is-valid": [ "off"]
+  },
+  "globals": {
+    "React": "writable",
+    "window": false,
+    "document": false,
+    "it": false,
+    "describe": false,
+    "expect": false,
+    "beforeEach": false,
+    "before": false,
+    "afterEach": false,
+    "afterAll": false,
+    "btoa": false,
+    "atob": false
+  }
+}
