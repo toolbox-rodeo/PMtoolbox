@@ -1,8 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 
-const fonts = { mono: `Work Sans` };
-
 const breakpoints = createBreakpoints({
   sm: "40em",
   md: "52em",
@@ -28,7 +26,6 @@ const theme = extendTheme({
       fontWeight: "semibold",
     },
   },
-  fonts,
   breakpoints,
   components: {
     Heading: {

@@ -2,10 +2,11 @@ import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 import NProgress from "nprogress";
 import Router from "next/router";
 import Head from "next/head";
+import "typeface-work-sans";
 
 import Navbar from "../components/navbar";
 import theme from "../chakra-theme";
-import "../public/tailwind.css";
+import "../public/global.css";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
