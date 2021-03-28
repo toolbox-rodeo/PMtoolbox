@@ -4,7 +4,7 @@ import Meta from "./meta";
 
 export default function Layout({ preview, children }) {
   return (
-    <div className="pt-4">
+    <div className="pt-5">
       <Meta />
       <div className="min-h-screen">
         <Alert preview={preview} />

@@ -4,7 +4,14 @@ import Container from "./container";
 
 export default function Navbar() {
   return (
-    <Box boxShadow="0px 1px 0px #E2DDD5">
+    <Box
+      borderBottomColor="#E2DDD5"
+      borderWidth="1px"
+      borderLeft="0"
+      borderRight="0"
+      borderTop="0"
+      background="white"
+    >
       <Container>
         <Flex
           minH="72px"
