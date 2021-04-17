@@ -9,7 +9,7 @@ export default function Footer() {
             Product Toolbox&trade;
           </a>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a className="mx-3">Created with 🖤 in Berlin
+            <a className="mx-3">Made with 🖤 in Berlin
             </a>
             <a href="https://www.rank.health/imprint" className="mx-3 hover:underline hover:text-success">Imprint
             </a>
