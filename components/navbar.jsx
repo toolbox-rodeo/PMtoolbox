@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Spacer } from "@chakra-ui/react";
 import Link from "next/link";
 import Container from "./container";
 
