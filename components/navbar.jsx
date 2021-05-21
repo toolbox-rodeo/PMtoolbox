@@ -22,7 +22,7 @@ export default function Navbar() {
         >
           <Link href="/">
             <h1 className="mx-3 lg:text-xl">
-              Product Toolbox;
+              Product Toolbox
             </h1>
           </Link>
           <Spacer />
