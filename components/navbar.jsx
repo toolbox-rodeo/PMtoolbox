@@ -21,18 +21,21 @@ export default function Navbar() {
           align="center"
         >
           <Link href="/">
-           <a>
-            <img src="/favicon/favicon-32x32.png" alt="Logo" />
-           </a>
+            <h1 className="mx-3 lg:text-xl">
+              Product Toolbox
+            </h1>
           </Link>
           <Spacer />
-            <h1 className="mx-3 lg:text-5xl">
-              🧰 Product Toolbox 🔧&trade;
-            </h1>
+
           <Spacer />
           <Link href="/about">
             <a className="mx-3 lg:text-xl hover:underline">
               About
+            </a>
+          </Link>
+          <Link href="/contact">
+            <a className="mx-3 lg:text-xl hover:underline">
+              Contact
             </a>
           </Link>
         </Flex>

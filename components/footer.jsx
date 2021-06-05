@@ -6,7 +6,7 @@ export default function Footer() {
       <Container>
         <div className="py-12 flex flex-col lg:flex-row items-center">
           <a className="text-xl lg:text-xl tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Product Toolbox&trade;
+            Product Toolbox
           </a>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <a className="mx-3">Made with 🖤 in Berlin
