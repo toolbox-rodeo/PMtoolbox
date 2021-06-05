@@ -9,16 +9,30 @@ export default function Footer() {
             Product Toolbox
           </a>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a className="mx-3">Made with 🖤 in Berlin
+            <a className="mx-3">Made with 🖤 in Berlin</a>
+            <a
+              href="https://www.rank.health/imprint"
+              className="mx-3 hover:underline hover:text-success"
+            >
+              Imprint
             </a>
-            <a href="https://www.rank.health/imprint" className="mx-3 hover:underline hover:text-success">Imprint
+            <a
+              href="https://www.rank.health/data-privacy"
+              className="mx-3 hover:underline hover:text-success"
+            >
+              Data Privacy
             </a>
-            <a href="https://www.rank.health/data-privacy" className="mx-3 hover:underline hover:text-success">Data Privacy
+            <a
+              href="https://www.rank.health/cookies"
+              className="mx-3 hover:underline hover:text-success"
+            >
+              No cookies for you 🍪
             </a>
-            <a href="https://www.rank.health/cookies" className="mx-3 hover:underline hover:text-success">No cookies for you 🍪
-            </a>
-            <a href="https://github.com/toolbox-rodeo/PMtoolbox" className="mx-3 hover:underline hover:text-success">
-              <img src="/github.png" alt="Github Logo" />
+            <a
+              href="https://github.com/toolbox-rodeo/PMtoolbox"
+              className="mx-3 hover:underline hover:text-success"
+            >
+              <img src="/github.svg" alt="Github Logo" width={32} />
             </a>
           </div>
         </div>
