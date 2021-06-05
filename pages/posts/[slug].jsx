@@ -11,6 +11,7 @@ import PostTitle from "../../components/post-title";
 export default function Post({ post, preview }) {
   const router = useRouter();
 
+  debugger
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />;
   }
