@@ -21,26 +21,19 @@ export default function Navbar() {
           align="center"
         >
           <Link href="/">
-            <h1 className="mx-3 lg:text-xl">
-              Product Toolbox
-            </h1>
+            <a className="mx-3 lg:text-xl">Product Toolbox</a>
           </Link>
           <Spacer />
 
           <Spacer />
           <Link href="/about">
-            <a className="mx-3 lg:text-xl hover:underline">
-              About
-            </a>
+            <a className="mx-3 lg:text-xl hover:underline">About</a>
           </Link>
           <Link href="/contact">
-            <a className="mx-3 lg:text-xl hover:underline">
-              Contact
-            </a>
+            <a className="mx-3 lg:text-xl hover:underline">Contact</a>
           </Link>
         </Flex>
       </Container>
-
     </Box>
   );
 }
