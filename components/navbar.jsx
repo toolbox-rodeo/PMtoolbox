@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link href="/about">
             <a className="mx-3 lg:text-xl hover:underline">About</a>
           </Link>
-          <Link href="/contact">
+          <Link href="https://www.rank.health/contact">
             <a className="mx-3 lg:text-xl hover:underline">Contact</a>
           </Link>
         </Flex>
