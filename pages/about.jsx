@@ -23,7 +23,7 @@ function About() {
       <Image
         borderRadius="full"
         boxSize="150px"
-        src="Max.jpg"
+        src="/Max.jpg"
         fallbackSrc="https://via.placeholder.com/150"
         alt="Max"
       />
