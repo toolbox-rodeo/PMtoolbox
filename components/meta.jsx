@@ -6,24 +6,24 @@ export default function Meta() {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
+        href="/favicon/Logo_plain_black no background.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon/favicon-32x32.png"
+        href="/favicon/Logo_plain_black no background.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon/favicon-16x16.png"
+        href="/favicon/Logo_plain_black no background.png.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link
         rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
+        href="/favicon/Logo_plain_black no background.png"
         color="#000000"
       />
       <link rel="shortcut icon" href="/favicon/Logo_plain_black no background.png" />
