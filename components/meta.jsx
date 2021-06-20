@@ -18,7 +18,7 @@ export default function Meta() {
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon/Logo_plain_black no background.png.png"
+        href="/favicon/Logo_plain_black no background.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link
@@ -33,7 +33,7 @@ export default function Meta() {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content="Product manager toolbox. Find all the tools a great product manager can use."
+        content="PM toolbox. Find all the tools great product managers use."
       />
     </Head>
   );

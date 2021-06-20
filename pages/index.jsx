@@ -10,7 +10,7 @@ export default function Index({ preview, allPosts }) {
     <div style={{ background: "#F5F2F0" }}>
       <Layout preview={preview}>
         <Head>
-          <title>Product manager Toolbox</title>
+          <title>PM Toolbox</title>
         </Head>
 
         <Container>
