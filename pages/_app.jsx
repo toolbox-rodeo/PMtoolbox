@@ -4,6 +4,7 @@ import Router from "next/router";
 import Head from "next/head";
 
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 import theme from "../chakra-theme";
 import "../public/global.css";
 
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <Navbar />
-      
+
       <ChakraProvider resetCSS theme={theme}>
         <ColorModeProvider
           options={{
@@ -31,6 +32,8 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </ColorModeProvider>
       </ChakraProvider>
+
+      <Footer />
     </>
   );
 }
