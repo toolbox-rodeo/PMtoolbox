@@ -11,7 +11,8 @@ import { Formik,
   Field
 } from 'formik';
 
-
+{/*https://chakra-ui.com/docs/form/form-control*/}
+  
 function Contact() {
   function validateName(value) {
     let error

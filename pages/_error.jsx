@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react';
-import Link from 'next/link'
+import Link from 'next/link';
 
 function Error({ statusCode }) {
   return (

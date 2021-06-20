@@ -9,7 +9,7 @@
     "lint": "eslint '*/**/*.{js,jsx}' --config ./.eslintrc"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.10",
+    "@chakra-ui/icons": "^1.0.13",
     "@chakra-ui/react": "^1.4.1",
     "@chakra-ui/theme-tools": "^1.1.1",
     "@contentful/rich-text-react-renderer": "14.1.1",
