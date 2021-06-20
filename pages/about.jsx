@@ -27,7 +27,7 @@ function About() {
         fallbackSrc="https://via.placeholder.com/150"
         alt="Max"
       />
-      <Text fontSize="2xl">Hi! My name's Max. I am a product guy passionate about helping teams building kick-ass products that users actually love🖤 to use. I spend my days helping incredible teams find and solve problems in health tech. Although I’m more handy with product strategy and the big picture, I have no problem getting my hands dirty and be knees-deep in the tech stack with the team. Currently, I work as a freelancer, regulatory consultant for DiGAs, and product wizard 🧙‍♂️. In my spare time I’m also coding on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding. Feel free to check out my →GitHub or contact me on →linkedin.</Text>
+      <Text fontSize="2xl">Hi! My name's Max. I am a product guy passionate about helping teams to build kick-ass products users love🖤 to use. I spend my days helping incredible teams find and solve problems in health tech. Although I’m more handy with product strategy and the big picture, I have no problem getting my hands dirty and be knees-deep in the tech stack with the team. Currently, I work as a freelancer, regulatory consultant for DiGAs, and product wizard 🧙‍♂️. In my spare time I’m also coding on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding. Feel free to check out my →GitHub or contact me on →linkedin.</Text>
 
     </container>
   </div>

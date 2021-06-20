@@ -36,7 +36,7 @@ function Contact() {
           <Field name="name" validate={validateName}>
             {({ field, form }) => (
               <FormControl id="email" isInvalid={form.errors.name}>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <Input type="email" placeholder="bruce@wayne.com" />
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                 <FormHelperText>We need your email to reply. We'll never share it 🤞.</FormHelperText>
@@ -48,7 +48,7 @@ function Contact() {
             {({ field, form }) => (
               <FormControl id="first-name">
                 <FormLabel>Message</FormLabel>
-                <Input placeholder="type your message here..." />
+                <Input placeholder="what do you want to tell us?" />
               </FormControl>
             )}
           </Field>
