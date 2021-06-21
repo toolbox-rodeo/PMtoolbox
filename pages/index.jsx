@@ -10,10 +10,15 @@ import {
   InputGroup,
   Button,
   } from "@chakra-ui/react";
-  import { SearchIcon } from '@chakra-ui/icons';
+import { SearchIcon } from '@chakra-ui/icons';
+{/* import React,{ Component } from 'react'; */}
+
 
 
 export default function Index({ preview, allPosts }) {
+
+{/*https://medium.com/crobyer/search-filter-with-react-js-88986c644ed5*/}
+
   return (
     <div style={{ background: "#F5F2F0" }}>
       <Layout preview={preview}>
@@ -27,9 +32,8 @@ export default function Index({ preview, allPosts }) {
             pointerEvents="none"
             children={<SearchIcon color="gray.300" />}
           />
-          <Input variant="outline" placeholder="Search" />
+          <Input variant="outline" placeholder="Search for posts or tags" />
         </InputGroup>
-        <Button>Filter</Button>
         </div>
 
         <Container>

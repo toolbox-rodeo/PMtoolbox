@@ -4,52 +4,70 @@ import {
   FormErrorMessage,
   FormHelperText,
   Input,
-  Button
+  Button,
+  Textarea
 } from "@chakra-ui/react";
-import { Formik,
+import {
+  Formik,
   Form,
-  Field
+  Field,
+  useFormikContext,
+  useFormik
 } from 'formik';
+import React from 'react'
 
-{/*https://chakra-ui.com/docs/form/form-control*/}
-  
+
+{/*https://chakra-ui.com/docs/form/form-control
+https://formik.org/docs/overview
+https://chakra-ui.com/docs/form/textarea
+https://medium.com/nerd-for-tech/coding-a-contact-form-with-next-js-and-nodemailer-d3a8dc6cd645
+  */}
+
+
 function Contact() {
-  function validateName(value) {
+
+  const formik = useFormik({
+     initialValues: {
+       email: '',
+       text: '',
+     },
+     onSubmit: values => {
+       alert(JSON.stringify(values, null, 2));
+     },
+   });
+
+  function validateInput(value) {
     let error
     if (!value) {
       error = "Email is required"
-    }
+    } else if (
+           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+         ) {
+           error = "Invalid email address"
+         }
     return error
   }
 
-
   return (
-    <Formik
-      initialValues={{ name: "" }}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          actions.setSubmitting(false)
-        }, 1000)
-      }}>
+    <Formik>
       {(props) => (
-        <Form>
-          <Field name="name" validate={validateName}>
+        <Form onSubmit={formik.handleSubmit}>
+          <Field name="email" validate={validateInput}>
             {({ field, form }) => (
-              <FormControl id="email" isInvalid={form.errors.name}>
+              <FormControl id="email" isInvalid={form.errors.email && form.touched.email} isRequired>
                 <FormLabel>Email</FormLabel>
-                <Input type="email" placeholder="bruce@wayne.com" />
-                <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                <FormHelperText>We need your email to reply. We'll never share it 🤞.</FormHelperText>
+                <Input {...field} id="email" type="email" placeholder="bruce@wayne.com" {...formik.getFieldProps('email')} />
+                <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                <FormHelperText>Email is required to reply. We'll never share it ✋.</FormHelperText>
               </FormControl>
             )}
           </Field>
 
-          <Field name="message">
+          <Field name="text">
             {({ field, form }) => (
-              <FormControl id="first-name">
+              <FormControl id="text">
                 <FormLabel>Message</FormLabel>
-                <Input placeholder="what do you want to tell us?" />
+                <Textarea type="text" placeholder="what do you want to tell us?" {...formik.getFieldProps('text')} />
               </FormControl>
             )}
           </Field>
