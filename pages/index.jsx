@@ -27,10 +27,10 @@ export default function Index({ preview, allPosts }) {
         </Head>
 
         <div>
-        <InputGroup>
+        <InputGroup padding="13" >
           <InputLeftElement
             pointerEvents="none"
-            children={<SearchIcon color="gray.300" />}
+            children={<SearchIcon color="gray.300" marginTop="26" marginLeft="26" />}
           />
           <Input variant="outline" placeholder="Search for posts or tags" />
         </InputGroup>
