@@ -1,0 +1,24 @@
+.inputGroup {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 75%;
+  max-width: 700px;
+}
+
+.inputLabel {
+}
+
+.inputField {
+  height: 30px;
+  border: 1px solid #555;
+  padding-left: 10px;
+}
+
+.inputFieldMessage {
+  height: 120px;
+  border: 1px solid #555;
+  padding-left: 10px;
+  padding-top: 10px;
+}

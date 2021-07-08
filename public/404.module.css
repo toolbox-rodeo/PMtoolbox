@@ -1,0 +1,27 @@
+.title {
+  background-color: black;
+  margin: 0;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.title p {
+  color: #F8F8FF;
+  text-decoration: none;
+  font-size: 4rem;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
+.space {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 100px;
+}
+
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 200px;
+}

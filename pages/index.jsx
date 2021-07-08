@@ -10,14 +10,14 @@ import {
   InputGroup,
   Button,
   } from "@chakra-ui/react";
-import { SearchIcon } from '@chakra-ui/icons';
-{/* import React,{ Component } from 'react'; */}
-
+import { SearchIcon } from "@chakra-ui/icons";
+import React, { Component } from "react";
+import { useState } from "react";
 
 
 export default function Index({ preview, allPosts }) {
 
-{/*https://medium.com/crobyer/search-filter-with-react-js-88986c644ed5*/}
+const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div style={{ background: "#F5F2F0" }}>
@@ -26,20 +26,27 @@ export default function Index({ preview, allPosts }) {
           <title>PM Toolbox</title>
         </Head>
 
-        <div>
-        <InputGroup padding="13" >
-          <InputLeftElement
-            pointerEvents="none"
-            children={<SearchIcon color="gray.300" marginTop="26" marginLeft="26" />}
-          />
-          <Input variant="outline" placeholder="Search for posts or tags" />
-        </InputGroup>
-        </div>
-
         <Container>
+
+          <div>
+          <InputGroup marginBottom="13">
+            <InputLeftElement
+              pointerEvents="none"
+              children={<SearchIcon color="gray.300"/>}
+            />
+            <Input variant="outline" placeholder="Search for posts" onChange={event => {setSearchTerm(event.target.value)}}/>
+          </InputGroup>
+          </div>
+
           {allPosts.length > 0 && (
             <CardsGrid>
-              {allPosts.map((post) => (
+              {allPosts.filter((post)=> {
+                if (searchTerm == ""){
+                  return post
+                } else if (post.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return post
+                }
+               }).map((post) => (
                 <PostPreview
                   key={post.slug}
                   title={post.title}

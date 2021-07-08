@@ -1,15 +1,23 @@
-import { Button } from '@chakra-ui/react';
+import {
+Button,
+Box
+ } from '@chakra-ui/react';
 import Link from 'next/link';
+import styles from "../public/404.module.css";
+
 
 function Error({ statusCode }) {
   return (
-    <div>
+
+    <Box align="center" backgroundColor='black'>
+    <div className={styles.title}>
       <p>
-      <img src="/404.gif" alt="Laika in Space"/>
+      <img src="/404.gif" alt="Laika in Space" className={styles.img}/>
         {statusCode
           ? `Seems like you're lost in ${statusCode}`
           : 'Seems like you are lost in'}
       </p>
+      <br/><br/>
 
       <div>
         <Link href="/">
@@ -18,7 +26,9 @@ function Error({ statusCode }) {
           </Button>
         </Link>
       </div>
+      <br/><br/><br/>
     </div>
+    </Box>
   )
 }
 
