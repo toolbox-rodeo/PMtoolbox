@@ -12,6 +12,8 @@ import {
   Box,
   Text
 } from "@chakra-ui/react";
+
+{/*
 import {
   Formik,
   Form,
@@ -19,6 +21,7 @@ import {
   useFormikContext,
   useFormik
 } from 'formik';
+*/}
 
 
 export default function contact() {
@@ -57,19 +60,21 @@ export default function contact() {
     })
   }
 
-
-  function validateInput(value) {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-}
-
-
 {/*
+  function validateEmail(value) {
+     let error;
+     if (!value) {
+       error = 'Required';
+     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+       error = 'Invalid email address';
+     }
+     return error;
+   }
+*/}
+
+function Submit() {
+  document.getElementById("Form").reset();
+}
 
   return (
     <div className={styles.container}>
@@ -84,8 +89,7 @@ export default function contact() {
         <br/><br/>
       </Box>
 
-      <Formik>
-        <Form className={styles.main}>
+        <form id="Form" className={styles.main}>
 
           <FormControl
           id="name"
@@ -114,6 +118,7 @@ export default function contact() {
           <br/>
 
           <FormControl
+          id="message"
           className={styles.inputGroup}
           isRequired>
             <FormLabel htmlFor='message'>Message</FormLabel>
@@ -130,20 +135,22 @@ export default function contact() {
               mt={4}
               colorScheme="teal"
               type="submit"
-              onClick={(e)=>{handleSubmit(e)}}>
+              onClick={(e)=>{
+                handleSubmit(e);
+                Submit();
+              }}>
               Submit
             </Button>
             <br/><br/><br/><br/><br/><br/>
           </Box>
 
-        </Form>
-      </Formik>
+        </form>
     </div>
   )
 }
 
-*/}
 
+{/*
 
   return (
     <div className={styles.container}>
@@ -157,12 +164,24 @@ export default function contact() {
         <br/><br/>
       </Box>
 
-      <Formik>
+      <Formik
+      initialValues={{
+        name: '',
+        email: '',
+        message: '',
+        }}
+        onSubmit={(values, actions) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2))
+          actions.setSubmitting(false)
+        }, 1000)
+      }}
+      >
         {(props) => (
-          <Box margin="auto" width="75%" maxWidth="700px">
-          <br />
+        <Box margin="auto" width="75%" maxWidth="700px">
+          <Form>
 
-            <Field name="name">
+            <Field>
               {({ field, form }) => (
                 <FormControl id="name">
                   <FormLabel>Name</FormLabel>
@@ -174,26 +193,27 @@ export default function contact() {
                 </FormControl>
               )}
             </Field>
+            <br />
 
-            <Form>
-              <Field name="email" validate={validateInput}>
+              <Field
+              validate={validateEmail}>
                 {({ field, form }) => (
-                  <FormControl id="email" isInvalid={form.errors.email && form.touched.email} isRequired>
+                  <FormControl
+                  isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Email</FormLabel>
-                    <Input {...field}
-                    id="email"
+                    <Input
                     type="email"
                     placeholder="bruce@wayne.com"
                     onChange={(e)=>{setMessage(e.target.value)}}
-                    name='message' />
-                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    name='email' />
                     <FormHelperText>Email is required to reply. We'll never share it ✋.</FormHelperText>
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
               </Field>
               <br />
 
-              <Field name="text">
+              <Field>
                 {({ field, form }) => (
                   <FormControl id="text">
                     <FormLabel>Message</FormLabel>
@@ -216,6 +236,7 @@ export default function contact() {
                   Submit
                 </Button>
               </Box>
+
             </Form>
             <br /><br />
           </Box>
@@ -224,3 +245,4 @@ export default function contact() {
     </div>
   )
 }
+*/}
