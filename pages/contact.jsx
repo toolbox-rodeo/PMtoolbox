@@ -67,41 +67,37 @@ export default function contact() {
 
       <form className={styles.main}>
 
-        <formGroup className={styles.inputGroup}>
-          <label htmlFor='name'
-          className={styles.inputLabel}>Name</label>
-          <input
+        <FormControl id="name" className={styles.inputGroup}>
+          <FormLabel htmlFor='name'>Name
+          </FormLabel>
+          <Input
           type='text'
           placeholder="Tell us your name..."
           onChange={(e)=>{setName(e.target.value)}}
-          name='name'
-          className={styles.inputField} />
-        </formGroup>
+          name='name'/>
+        </FormControl>
         <br/>
 
-        <formGroup className={styles.inputGroup}>
-          <label htmlFor='email'
-          className={styles.inputLabel}>Email</label>
-          <input
+        <FormControl id="email" className={styles.inputGroup} isRequired>
+          <FormLabel htmlFor='email'>Email
+          </FormLabel>
+          <Input
           type='email'
           placeholder="...and your email, so we can get back to you."
           onChange={(e)=>{setEmail(e.target.value)}}
-          name='email'
-          className={styles.inputField}
-          isRequired />
-        </formGroup>
+          name='email'/>
+          <FormHelperText>We'll never share it🤚</FormHelperText>
+        </FormControl>
         <br/>
 
-        <formGroup className={styles.inputGroup} >
-          <label htmlFor='message'
-          className={styles.inputLabel}>Message</label>
-          <textarea
+        <FormControl className={styles.inputGroup} isRequired>
+          <FormLabel htmlFor='message'>Message</FormLabel>
+          <Textarea
           type='text'
           placeholder="What do you want to share with us?"
           onChange={(e)=>{setMessage(e.target.value)}}
-          name='message'
-          className={styles.inputFieldMessage} />
-        </formGroup>
+          name='message'/>
+        </FormControl>
         <br/>
 
         <Box align="center">
