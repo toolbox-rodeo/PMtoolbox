@@ -1,13 +1,15 @@
 export default function (req, res) {
     require('dotenv').config()
 
+    const PASSWORD = process.env.password
+
     let nodemailer = require('nodemailer')
     const transporter = nodemailer.createTransport({
       port: 465,
       host: "smtp.gmail.com",
          auth: {
               user: 'becomingdiga@gmail.com',
-              pass: 'LafaY3Tt3!',
+              pass: process.env.password,
            },
       secure: true,
     });

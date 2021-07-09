@@ -87,7 +87,8 @@ export default function contact() {
           placeholder="...and your email, so we can get back to you."
           onChange={(e)=>{setEmail(e.target.value)}}
           name='email'
-          className={styles.inputField} />
+          className={styles.inputField}
+          isRequired />
         </formGroup>
         <br/>
 
@@ -142,23 +143,6 @@ import {
 } from 'formik';
 import React from 'react'
 
-https://chakra-ui.com/docs/form/form-control
-https://formik.org/docs/overview
-https://chakra-ui.com/docs/form/textarea
-https://medium.com/nerd-for-tech/coding-a-contact-form-with-next-js-and-nodemailer-d3a8dc6cd645
-
-
-function Contact() {
-
-  const formik = useFormik({
-     initialValues: {
-       email: '',
-       text: '',
-     },
-     onSubmit: values => {
-       alert(JSON.stringify(values, null, 2));
-     },
-   });
 
   function validateInput(value) {
     let error
@@ -177,6 +161,7 @@ function Contact() {
       {(props) => (
         <Box marginLeft="10%" marginRight="10%">
         <br />
+
         <Form onSubmit={formik.handleSubmit}>
           <Field name="email" validate={validateInput}>
             {({ field, form }) => (
