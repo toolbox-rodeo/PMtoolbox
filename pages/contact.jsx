@@ -14,16 +14,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-{/*
-import {
-  Formik,
-  Form,
-  Field,
-  useFormikContext,
-  useFormik
-} from 'formik';
-*/}
-
 
 export default function contact() {
 
@@ -32,17 +22,14 @@ export default function contact() {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const toast = useToast()
-
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Sending')
-
       let data = {
         name,
         email,
         message
       }
-
       fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -62,7 +49,10 @@ export default function contact() {
     })
   }
 
-{/*
+  function Submit() {
+    document.getElementById("Form").reset();
+  }
+
   function validateEmail(value) {
      let error;
      if (!value) {
@@ -72,11 +62,7 @@ export default function contact() {
      }
      return error;
    }
-*/}
 
-function Submit() {
-  document.getElementById("Form").reset();
-}
 
   return (
     <div className={styles.container}>
@@ -113,7 +99,10 @@ function Submit() {
             <Input
             type='email'
             placeholder="...and your email, so we can get back to you."
-            onChange={(e)=>{setEmail(e.target.value)}}
+            onChange={(e)=>{
+              setEmail(e.target.value);
+              validateEmail();
+            }}
             name='email'/>
             <FormHelperText>We'll never share it🤚</FormHelperText>
           </FormControl>
@@ -130,6 +119,7 @@ function Submit() {
             onChange={(e)=>{setMessage(e.target.value)}}
             name='message'/>
           </FormControl>
+        {/*  <div>{touched.email && errors.email}</div> */}
           <br/>
 
           <Box align="center">
@@ -141,7 +131,7 @@ function Submit() {
                 handleSubmit(e);
                 toast({
                   title: "Email sent.",
-                  description: "We'll reply soon. Enjoy your day🌈",
+                  description: "We'll reply soon. Enjoy your day!",
                   status: "success",
                   duration: 9000,
                   isClosable: true,

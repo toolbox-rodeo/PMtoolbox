@@ -9,6 +9,7 @@ import {
   InputLeftElement,
   InputGroup,
   Button,
+  Select,
   } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import React, { Component } from "react";
