@@ -10,7 +10,8 @@ import {
   Button,
   Textarea,
   Box,
-  Text
+  Text,
+  useToast,
 } from "@chakra-ui/react";
 
 {/*
@@ -30,6 +31,7 @@ export default function contact() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const toast = useToast()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -137,6 +139,13 @@ function Submit() {
               type="submit"
               onClick={(e)=>{
                 handleSubmit(e);
+                toast({
+                  title: "Email sent.",
+                  description: "We'll reply soon. Enjoy your day🌈",
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true,
+                });
                 Submit();
               }}>
               Submit
