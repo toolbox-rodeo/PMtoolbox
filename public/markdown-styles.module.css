@@ -2,8 +2,18 @@
   @apply text-lg leading-relaxed;
 }
 
-.markdown ul,
-.markdown ol,
+.markdown ul {
+  @apply my-6;
+  list-style-type: disc;
+  padding-left: 35px;
+}
+
+.markdown ol {
+  @apply my-6;
+  list-style-type: decimal;
+  padding-left: 35px;
+}
+
 .markdown blockquote {
   @apply my-6;
 }
