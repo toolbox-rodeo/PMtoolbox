@@ -14,7 +14,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-
 export default function contact() {
 
   const [name, setName] = useState('')
@@ -53,6 +52,7 @@ export default function contact() {
     document.getElementById("Form").reset();
   }
 
+{/*
   function validateEmail(value) {
      let error;
      if (!value) {
@@ -62,7 +62,9 @@ export default function contact() {
      }
      return error;
    }
+*/}
 
+{/*https://medium.com/@verdi/form-validation-in-react-2019-27bc9e39feac*/}
 
   return (
     <div className={styles.container}>
@@ -101,7 +103,7 @@ export default function contact() {
             placeholder="...and your email, so we can get back to you."
             onChange={(e)=>{
               setEmail(e.target.value);
-              validateEmail();
+              this.updateEmail(e.target.value);
             }}
             name='email'/>
             <FormHelperText>We'll never share it🤚</FormHelperText>
@@ -119,7 +121,6 @@ export default function contact() {
             onChange={(e)=>{setMessage(e.target.value)}}
             name='message'/>
           </FormControl>
-        {/*  <div>{touched.email && errors.email}</div> */}
           <br/>
 
           <Box align="center">
@@ -133,7 +134,7 @@ export default function contact() {
                   title: "Email sent.",
                   description: "We'll reply soon. Enjoy your day!",
                   status: "success",
-                  duration: 9000,
+                  duration: 4000,
                   isClosable: true,
                 });
                 Submit();
@@ -150,7 +151,6 @@ export default function contact() {
 
 
 {/*
-
   return (
     <div className={styles.container}>
       <Box align="center">
