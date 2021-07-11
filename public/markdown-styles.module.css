@@ -2,10 +2,14 @@
   @apply text-lg leading-relaxed;
 }
 
-.markdown p,
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
+  @apply my-6;
+}
+
+.markdown p {
+  white-space: pre-wrap;
   @apply my-6;
 }
 
