@@ -27,7 +27,7 @@ export default function (req, res) {
           console.log(err)
         else
           console.log(info);
-    })
+    });
 
     console.log(req.body)
     res.send('success')
