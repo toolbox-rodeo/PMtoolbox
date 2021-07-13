@@ -47,7 +47,7 @@ function About() {
           alt="Christos"
         />
         </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Christos works on projects with positive impact and decided to work on this project to help teams and organizations improve their processes and therefore their products. He loves eating cherries 🍒</Text>
+        <Text maxWidth="400" margin="13" fontSize="l">Christos: Works on projects with positive impact and decided to work on this project to help teams and organizations improve their processes and therefore their products. He loves eating cherries 🍒</Text>
         <Flex margin="13" justify="center" >
             <a
               href="https://github.com/paschalidi"
