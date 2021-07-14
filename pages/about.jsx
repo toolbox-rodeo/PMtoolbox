@@ -47,7 +47,8 @@ function About() {
           alt="Christos"
         />
         </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Christos: Works on projects with positive impact and decided to work on this project to help teams and organizations improve their processes and therefore their products. He loves eating cherries 🍒</Text>
+        <Text maxWidth="400" margin="13" fontSize="l">Works on projects with positive impact and decided to work on this project to help teams and organizations improve their processes and therefore their products. He loves eating cherries 🍒</Text>
+        <Text align="center" fontSize="xl">Christos</Text>
         <Flex margin="13" justify="center" >
             <a
               href="https://github.com/paschalidi"
@@ -75,7 +76,9 @@ function About() {
           alt="Max"
         />
         </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Hi! My name's Max. I am a product guy passionate about helping teams to build kick-ass products users love🖤 to use. I spend my days helping incredible teams find and solve problems in health tech. In my spare time I’m also coding on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
+        <Text maxWidth="400" margin="13" fontSize="l">Product wizard🧙‍♂️ passionate about helping teams to build kick-ass products users love🖤 to use. Helps incredible teams find and solve problems in health tech. Also codes on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
+        <Text align="center" fontSize="xl">Max</Text>
+
         <Flex margin="13" justify="center" >
             <a
               href="https://github.com/maxra3209"
