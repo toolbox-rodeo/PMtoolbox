@@ -49,6 +49,7 @@ function About() {
         </Box>
         <Text maxWidth="400" margin="13" fontSize="l">Works on projects with positive impact and decided to work on this project to help teams and organizations improve their processes and therefore their products. He loves eating cherries 🍒</Text>
         <Text align="center" fontSize="xl">Christos</Text>
+        <Text fontSize="l"> <br /> </Text>
         <Flex margin="13" justify="center" >
             <a
               href="https://github.com/paschalidi"
