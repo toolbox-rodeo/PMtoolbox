@@ -101,10 +101,7 @@ export default function contact() {
             <Input
             type='email'
             placeholder="...and your email, so we can get back to you."
-            onChange={(e)=>{
-              setEmail(e.target.value);
-              this.updateEmail(e.target.value);
-            }}
+            onChange={(e)=>{setEmail(e.target.value)}}
             name='email'/>
             <FormHelperText>We'll never share it🤚</FormHelperText>
           </FormControl>
