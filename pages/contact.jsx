@@ -21,35 +21,51 @@ export default function contact() {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const toast = useToast()
-  const handleSubmit = (e) => {
+  const handleSubmit = async e => {
     e.preventDefault()
     console.log('Sending')
-      let data = {
-        name,
-        email,
-        message
-      }
-      fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      }).then((res) => {
-      console.log('Response received')
-      if (res.status === 200) {
-        console.log('Response succeeded!')
-        setSubmitted(true)
-        setName('')
-        setEmail('')
-        setMessage('')
-      }
+    let data = {
+      name,
+      email,
+      message
+    }
+    let res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
-  }
-
-  function Submit() {
-    document.getElementById("Form").reset();
+    console.log('Response received')
+    if (res.status === 200) {
+      console.log('Request succeeded!')
+      // Show toast
+      toast({
+        title: "Message sent. 👍",
+        description: "We'll reply soon. Enjoy your day!",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+      })
+      // Updatte state
+      setSubmitted(true)
+      setName('')
+      setEmail('')
+      setMessage('')
+      // Reset form
+      document.getElementById("Form").reset();
+    } else {
+      console.log('Request failed!')
+      // Show toast
+      toast({
+        title: "Failed to send. 😳",
+        description: "Sorry, something went wrong here. Please try again.",
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+      });
+    }
   }
 
 {/*
@@ -125,17 +141,7 @@ export default function contact() {
               mt={4}
               colorScheme="teal"
               type="submit"
-              onClick={(e)=>{
-                handleSubmit(e);
-                toast({
-                  title: "Email sent.",
-                  description: "We'll reply soon. Enjoy your day!",
-                  status: "success",
-                  duration: 4000,
-                  isClosable: true,
-                });
-                Submit();
-              }}>
+              onClick={handleSubmit}>
               Submit
             </Button>
             <br/><br/><br/><br/><br/><br/>
