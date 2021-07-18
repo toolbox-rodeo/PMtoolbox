@@ -16,18 +16,39 @@ import {
 
 export default function contact() {
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const valuesDefault = {
+    name: '',
+    email: '',
+    message: '',
+  };
+  const defaultInvalids = Object.keys(valuesDefault).reduce((acc, key) => { 
+    acc[key] = null
+    return acc 
+  }, {})
+  const [values, setValues] = useState({ ...valuesDefault })
+  const [invalids, setInvalids] = useState({ ...defaultInvalids });
   const [submitted, setSubmitted] = useState(false)
   const toast = useToast()
   const handleSubmit = async e => {
     e.preventDefault()
+    // Re-validate 
+    const isValid = Object.keys(values).reduce((acc, key) => acc && !validate(key, values[key]), true)
+    // Block if invalid
+    if (!isValid) {
+      // Show toast
+      toast({
+        title: "Hold your horses. ✋",
+        description: "There seems to be something off here. Please check your inputs and try again.",
+        status: "warning",
+        duration: 4000,
+        isClosable: true,
+      });
+      return;
+    }
+    // Go ahead otherwise
     console.log('Sending')
     let data = {
-      name,
-      email,
-      message
+      ...values,
     }
     let res = await fetch('/api/contact', {
       method: 'POST',
@@ -37,7 +58,7 @@ export default function contact() {
       },
       body: JSON.stringify(data)
     })
-    console.log('Response received')
+    console.log('Response received')  
     if (res.status === 200) {
       console.log('Request succeeded!')
       // Show toast
@@ -48,11 +69,10 @@ export default function contact() {
         duration: 4000,
         isClosable: true,
       })
-      // Updatte state
+      // Update state
       setSubmitted(true)
-      setName('')
-      setEmail('')
-      setMessage('')
+      setValues({ ...valuesDefault })
+      resetInvalids()
       // Reset form
       document.getElementById("Form").reset();
     } else {
@@ -68,17 +88,58 @@ export default function contact() {
     }
   }
 
-{/*
-  function validateEmail(value) {
-     let error;
-     if (!value) {
-       error = 'Required';
-     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-       error = 'Invalid email address';
-     }
-     return error;
-   }
-*/}
+  function setValue(key, value) {
+    switch (key) {
+      case 'name':
+        break;
+      case 'email': 
+      case 'message':
+        validate(key, value)
+        break
+    }
+    setValues({
+      ...values,
+      [key]: value,
+    })
+  }
+
+  function updateInvalids(update) {
+    if (typeof update !== 'object') return;
+    setInvalids({
+      ...invalids,
+      ...update,
+    })
+  }
+
+  function resetInvalids() {
+    setInvalids({ ...defaultInvalids });
+  }
+
+  function validate(key, value) {
+    let error = null;
+    const ERROR_REQUIRED = 'Required field.';
+    switch (key) {
+      case 'email': 
+        if (value === '') {
+          error = ERROR_REQUIRED;
+        } else {
+          const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i;
+          if (!emailRegex.test(value)) {
+            error = 'Invalid email address';
+          }
+        }
+        break;
+      case 'message': 
+        if (value === '') {
+          error = ERROR_REQUIRED;
+        }
+        break;
+    }
+    updateInvalids({
+      [key]: error,
+    })
+    return error
+  }
 
 {/*https://medium.com/@verdi/form-validation-in-react-2019-27bc9e39feac*/}
 
@@ -104,7 +165,7 @@ export default function contact() {
             <Input
             type='text'
             placeholder="Tell us your name..."
-            onChange={(e)=>{setName(e.target.value)}}
+            onChange={(e)=>{setValue('name', e.target.value)}}
             name='name'/>
           </FormControl>
           <br/>
@@ -112,13 +173,15 @@ export default function contact() {
           <FormControl
           id="email"
           className={styles.inputGroup}
+          isInvalid={!!invalids.email}
           isRequired>
             <FormLabel htmlFor='email'>Email</FormLabel>
             <Input
             type='email'
             placeholder="...and your email, so we can get back to you."
-            onChange={(e)=>{setEmail(e.target.value)}}
+            onChange={(e)=>{setValue('email', e.target.value)}}
             name='email'/>
+            <FormErrorMessage>{invalids.email}</FormErrorMessage>
             <FormHelperText>We'll never share it🤚</FormHelperText>
           </FormControl>
           <br/>
@@ -126,13 +189,15 @@ export default function contact() {
           <FormControl
           id="message"
           className={styles.inputGroup}
+          isInvalid={!!invalids.message}
           isRequired>
             <FormLabel htmlFor='message'>Message</FormLabel>
             <Textarea
             type='text'
             placeholder="What do you want to share with us?"
-            onChange={(e)=>{setMessage(e.target.value)}}
+            onChange={(e)=>{setValue('message', e.target.value)}}
             name='message'/>
+            <FormErrorMessage>{invalids.message}</FormErrorMessage>
           </FormControl>
           <br/>
 
