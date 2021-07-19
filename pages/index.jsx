@@ -25,6 +25,8 @@ const [searchTerm, setSearchTerm] = useState("");
       <Layout preview={preview}>
         <Head>
           <title>PM Toolbox</title>
+          <script type="text/javascript" src="/static/head.js" charset="UTF-8"></script>
+          <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
         </Head>
 
         <Container>
