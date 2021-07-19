@@ -21,9 +21,9 @@ export default function contact() {
     email: '',
     message: '',
   };
-  const defaultInvalids = Object.keys(valuesDefault).reduce((acc, key) => { 
+  const defaultInvalids = Object.keys(valuesDefault).reduce((acc, key) => {
     acc[key] = null
-    return acc 
+    return acc
   }, {})
   const [values, setValues] = useState({ ...valuesDefault })
   const [invalids, setInvalids] = useState({ ...defaultInvalids });
@@ -31,7 +31,7 @@ export default function contact() {
   const toast = useToast()
   const handleSubmit = async e => {
     e.preventDefault()
-    // Re-validate 
+    // Re-validate
     const isValid = Object.keys(values).reduce((acc, key) => acc && !validate(key, values[key]), true)
     // Block if invalid
     if (!isValid) {
@@ -58,7 +58,7 @@ export default function contact() {
       },
       body: JSON.stringify(data)
     })
-    console.log('Response received')  
+    console.log('Response received')
     if (res.status === 200) {
       console.log('Request succeeded!')
       // Show toast
@@ -92,7 +92,7 @@ export default function contact() {
     switch (key) {
       case 'name':
         break;
-      case 'email': 
+      case 'email':
       case 'message':
         validate(key, value)
         break
@@ -119,7 +119,7 @@ export default function contact() {
     let error = null;
     const ERROR_REQUIRED = 'Required field.';
     switch (key) {
-      case 'email': 
+      case 'email':
         if (value === '') {
           error = ERROR_REQUIRED;
         } else {
@@ -129,7 +129,7 @@ export default function contact() {
           }
         }
         break;
-      case 'message': 
+      case 'message':
         if (value === '') {
           error = ERROR_REQUIRED;
         }
@@ -202,6 +202,10 @@ export default function contact() {
           <br/>
 
           <Box align="center">
+            <br/>
+            <Text
+            color="gray.400"
+            maxWidth="300px">By submitting you agree that these data will be sent via AWS servers that may be located outside the EU.</Text>
             <Button
               mt={4}
               colorScheme="teal"
@@ -216,100 +220,3 @@ export default function contact() {
     </div>
   )
 }
-
-
-{/*
-  return (
-    <div className={styles.container}>
-      <Box align="center">
-        <br /><br />
-        <Text fontSize="6xl">
-          <h1>
-            CONTACT US
-          </h1>
-        </Text>
-        <br/><br/>
-      </Box>
-
-      <Formik
-      initialValues={{
-        name: '',
-        email: '',
-        message: '',
-        }}
-        onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          actions.setSubmitting(false)
-        }, 1000)
-      }}
-      >
-        {(props) => (
-        <Box margin="auto" width="75%" maxWidth="700px">
-          <Form>
-
-            <Field>
-              {({ field, form }) => (
-                <FormControl id="name">
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                  type="text"
-                  placeholder="Tell us your name..."
-                  onChange={(e)=>{setName(e.target.value)}}
-                  name='name'/>
-                </FormControl>
-              )}
-            </Field>
-            <br />
-
-              <Field
-              validate={validateEmail}>
-                {({ field, form }) => (
-                  <FormControl
-                  isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel>Email</FormLabel>
-                    <Input
-                    type="email"
-                    placeholder="bruce@wayne.com"
-                    onChange={(e)=>{setMessage(e.target.value)}}
-                    name='email' />
-                    <FormHelperText>Email is required to reply. We'll never share it ✋.</FormHelperText>
-                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <br />
-
-              <Field>
-                {({ field, form }) => (
-                  <FormControl id="text">
-                    <FormLabel>Message</FormLabel>
-                    <Textarea
-                    type="text"
-                    placeholder="What do you want to share with us?"
-                    onChange={(e)=>{setMessage(e.target.value)}}
-                    name='message'/>
-                  </FormControl>
-                )}
-              </Field>
-
-              <Box align="center">
-                <Button
-                  mt={4}
-                  colorScheme="teal"
-                  isLoading={props.isSubmitting}
-                  type="submit"
-                  onClick={(e)=>{handleSubmit(e)}}>
-                  Submit
-                </Button>
-              </Box>
-
-            </Form>
-            <br /><br />
-          </Box>
-        )}
-      </Formik>
-    </div>
-  )
-}
-*/}
