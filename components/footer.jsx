@@ -23,12 +23,6 @@ export default function Footer() {
               Data Privacy
             </a>
             <a
-              href="https://www.rank.health/cookies"
-              className="mx-3 hover:underline hover:text-success"
-            >
-              No cookies for you 🍪
-            </a>
-            <a
               href="https://github.com/toolbox-rodeo/PMtoolbox"
               className="mx-3 hover:underline hover:text-success"
             >
