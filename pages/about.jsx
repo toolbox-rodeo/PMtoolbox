@@ -30,9 +30,9 @@ function About() {
       <br />
       <Text fontSize="l">A former product lead of mine used to say that. Of course, there is more to a good PM than knowing their toolbox. But let's face it: It's a pretty big part of it.</Text>
       <br />
-      <Text fontSize="l">And whne browsing through all the books and other resources, they all mention a handful of them. But there are so many more they leave out. And instead of reading all those books to get to know all those methods, we thought it might be more useful to have them at hand in one central resource. That's why we decided to build this PM Toolbox.</Text>
+      <Text fontSize="l">Unfortunately, there is no single book or resource out there which has all of these amazing techniques and methods in one single place. That's why we build this PM Toolbox.</Text>
       <br />
-      <Text fontSize="l">Make sure to regularly come back and visit. We will continually add more articles and functions. And if you're missing your favorite tool, hit us up: Maybe it will end up here as well.</Text>
+      <Text fontSize="l">Make sure to regularly come back and visit. We continually add more articles and functionality. And if you're missing your favorite tool, hit us up: Maybe it will end up here as well.</Text>
       <br /><br />
     </Box>
 
