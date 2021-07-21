@@ -28,9 +28,9 @@ function About() {
     <br />
     <Box margin="auto" maxWidth="700px">
       <br />
-      <Text fontSize="l">A former product lead of mine used to say that. Of course, there is more to a good PM than knowing their toolbox. But let's face it: It's a pretty big part of it.</Text>
+      <Text fontSize="l">A former product lead of mine used to say that. Probably, there's more to a good PM. But definitely, the more tools you got in your box, the better you can support your teams to build kick-ass products 🐱‍💻.</Text>
       <br />
-      <Text fontSize="l">Unfortunately, there is no single book or resource out there which has all of these amazing techniques and methods in one single place. That's why we build this PM Toolbox.</Text>
+      <Text fontSize="l">Unfortunately, there's no great resource out there where all the useful techniques & workshop methods on prioritzation, roadmapping, discovery, etc. are centrally kept. That's why we build PM Toolbox.</Text>
       <br />
       <Text fontSize="l">Make sure to regularly come back and visit. We continually add more articles and functionality. And if you're missing your favorite tool, hit us up: Maybe it will end up here as well.</Text>
       <br /><br />
@@ -77,7 +77,7 @@ function About() {
           alt="Max"
         />
         </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Product wizard🧙‍♂️ passionate about helping teams to build kick-ass products users love🖤 to use. Helps incredible teams find and solve problems in health tech. Also codes on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
+        <Text maxWidth="400" margin="13" fontSize="l">Product wizard🧙‍♂️ passionate about helping teams build kick-ass products users love🖤 to use. Helps incredible teams find and solve problems in health tech. Also codes on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
         <Text align="center" fontSize="xl">Max</Text>
 
         <Flex margin="13" justify="center" >
