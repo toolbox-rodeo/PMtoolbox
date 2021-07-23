@@ -21,7 +21,7 @@ _iub.csConfiguration = {
   countryDetection: true,
   perPurposeConsent: true,
   cookiePolicyId: 83671844,
-  cookiePolicyUrl: 'https://www.pm.tools/data-privacy',
+  cookiePolicyUrl: 'https://www.rank.health/cookie-policy',
   banner: {
     acceptButtonDisplay: true,
     customizeButtonDisplay: true,
