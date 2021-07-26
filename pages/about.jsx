@@ -134,10 +134,12 @@ function About() {
           borderRadius="full"
           boxSize="200px"
           src="/Max.png"
-          alt="Max"
+          alt="Oliver"
         />
         </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Hi! My name's Max. I am a product guy passionate about helping teams to build kick-ass products users love🖤 to use. I spend my days helping incredible teams find and solve problems in health tech. In my spare time I’m also coding on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
+        <Text maxWidth="400" margin="13" fontSize="l">Hi! My nspend my days helping incredible teams find and solve problems in health tech. In my spare time I’m also coding on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
+        <Text align="center" fontSize="xl">Oliver</Text>
+        <Text fontSize="l"> <br /> </Text>
         <Flex margin="13" justify="center" >
             <a
               href="https://github.com/maxra3209"
