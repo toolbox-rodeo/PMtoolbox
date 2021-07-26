@@ -73,7 +73,7 @@ function About() {
         <Image
           borderRadius="full"
           boxSize="200px"
-          src="/Max.png"
+          src="/Duong.png"
           alt="Duong"
         />
         </Box>
