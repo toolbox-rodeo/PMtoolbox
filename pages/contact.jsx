@@ -62,7 +62,6 @@ export default function contact() {
     });
     console.log("Response received");
     console.log(res);
-    debugger;
     if (res.status === 200) {
       console.log("Request succeeded!");
       // Show toast
