@@ -52,7 +52,7 @@ export default function contact() {
     const data = {
       ...values,
     };
-    const res = await fetch("/api/contact", {
+    const res = await fetch("/.netlify/functions/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",

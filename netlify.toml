@@ -1,0 +1,5 @@
+[build]
+    #publish = after build command is complete the folder to serve as the website
+    publish = "public"
+    #functions = folder where your netlify functions are located
+    functions = "functions-build"
