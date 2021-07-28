@@ -1,18 +1,19 @@
-const nodemailer = require("nodemailer");
+export default function (req, res) {
+  require("dotenv").config();
 
-export default function async(req, res) {
+  const PASSWORD = process.env.password;
+
+  const nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
     port: 465,
     host: "smtp.gmail.com",
     auth: {
       user: "becomingdiga@gmail.com",
-      pass: process.env.password,
+      pass: process.env.GMAIL_PASSWORD,
     },
     secure: true,
   });
 
-  console.log(req.body);
-  console.log("@@@");
   const mailData = {
     from: "becomingdiga@gmail.com",
     to: "hello@rank.health",

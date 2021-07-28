@@ -61,6 +61,8 @@ export default function contact() {
       body: JSON.stringify(data),
     });
     console.log("Response received");
+    console.log(res);
+    debugger;
     if (res.status === 200) {
       console.log("Request succeeded!");
       // Show toast
@@ -71,11 +73,10 @@ export default function contact() {
         duration: 4000,
         isClosable: true,
       });
-
       // Update state
       setSubmitted(true);
       setValues({ ...valuesDefault });
-      setInvalids({ ...defaultInvalids });
+      resetInvalids();
       // Reset form
       document.getElementById("Form").reset();
     } else {
@@ -114,6 +115,10 @@ export default function contact() {
     });
   }
 
+  function resetInvalids() {
+    setInvalids({ ...defaultInvalids });
+  }
+
   function validate(key, value) {
     let error = null;
     const ERROR_REQUIRED = "Required field.";
@@ -138,6 +143,10 @@ export default function contact() {
       [key]: error,
     });
     return error;
+  }
+
+  {
+    /* https://medium.com/@verdi/form-validation-in-react-2019-27bc9e39feac */
   }
 
   return (
