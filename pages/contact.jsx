@@ -72,7 +72,6 @@ export default function contact() {
         isClosable: true,
       });
 
-      debugger;
       // Update state
       setSubmitted(true);
       setValues({ ...valuesDefault });
