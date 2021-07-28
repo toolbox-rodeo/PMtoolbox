@@ -1,5 +1,16 @@
 import { useState } from "react";
-import { Box, Button, FormControl, FormErrorMessage, FormHelperText, FormLabel, Input, Text, Textarea, useToast, } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
+  FormLabel,
+  Input,
+  Text,
+  Textarea,
+  useToast,
+} from "@chakra-ui/react";
 import styles from "../public/contact.module.css";
 
 export default function contact() {
