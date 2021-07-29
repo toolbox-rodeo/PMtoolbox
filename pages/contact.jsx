@@ -1,44 +1,46 @@
-import Head from "next/head";
-import styles from "../public/contact.module.css";
 import { useState } from "react";
 import {
+  Box,
+  Button,
   FormControl,
-  FormLabel,
   FormErrorMessage,
   FormHelperText,
+  FormLabel,
   Input,
-  Button,
-  Textarea,
-  Box,
   Text,
+  Textarea,
   useToast,
 } from "@chakra-ui/react";
+import styles from "../public/contact.module.css";
 
 export default function contact() {
-
   const valuesDefault = {
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   };
   const defaultInvalids = Object.keys(valuesDefault).reduce((acc, key) => {
-    acc[key] = null
-    return acc
-  }, {})
-  const [values, setValues] = useState({ ...valuesDefault })
+    acc[key] = null;
+    return acc;
+  }, {});
+  const [values, setValues] = useState({ ...valuesDefault });
   const [invalids, setInvalids] = useState({ ...defaultInvalids });
-  const [submitted, setSubmitted] = useState(false)
-  const toast = useToast()
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const [submitted, setSubmitted] = useState(false);
+  const toast = useToast();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     // Re-validate
-    const isValid = Object.keys(values).reduce((acc, key) => acc && !validate(key, values[key]), true)
+    const isValid = Object.keys(values).reduce(
+      (acc, key) => acc && !validate(key, values[key]),
+      true
+    );
     // Block if invalid
     if (!isValid) {
       // Show toast
       toast({
         title: "Hold your horses. ✋",
-        description: "There seems to be something off here. Please check your inputs and try again.",
+        description:
+          "There seems to be something off here. Please check your inputs and try again.",
         status: "warning",
         duration: 4000,
         isClosable: true,
@@ -46,21 +48,22 @@ export default function contact() {
       return;
     }
     // Go ahead otherwise
-    console.log('Sending')
-    let data = {
+    console.log("Sending");
+    const data = {
       ...values,
-    }
-    let res = await fetch('/api/contact', {
-      method: 'POST',
+    };
+    const res = await fetch("/.netlify/functions/contact", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-    })
-    console.log('Response received')
+      body: JSON.stringify(data),
+    });
+    console.log("Response received");
+    console.log(res);
     if (res.status === 200) {
-      console.log('Request succeeded!')
+      console.log("Request succeeded!");
       // Show toast
       toast({
         title: "Message sent. 👍",
@@ -68,15 +71,15 @@ export default function contact() {
         status: "success",
         duration: 4000,
         isClosable: true,
-      })
+      });
       // Update state
-      setSubmitted(true)
-      setValues({ ...valuesDefault })
-      resetInvalids()
+      setSubmitted(true);
+      setValues({ ...valuesDefault });
+      resetInvalids();
       // Reset form
       document.getElementById("Form").reset();
     } else {
-      console.log('Request failed!')
+      console.log("Request failed!");
       // Show toast
       toast({
         title: "Failed to send. 😳",
@@ -86,29 +89,29 @@ export default function contact() {
         isClosable: true,
       });
     }
-  }
+  };
 
   function setValue(key, value) {
     switch (key) {
-      case 'name':
+      case "name":
         break;
-      case 'email':
-      case 'message':
-        validate(key, value)
-        break
+      case "email":
+      case "message":
+        validate(key, value);
+        break;
     }
     setValues({
       ...values,
       [key]: value,
-    })
+    });
   }
 
   function updateInvalids(update) {
-    if (typeof update !== 'object') return;
+    if (typeof update !== "object") return;
     setInvalids({
       ...invalids,
       ...update,
-    })
+    });
   }
 
   function resetInvalids() {
@@ -117,106 +120,121 @@ export default function contact() {
 
   function validate(key, value) {
     let error = null;
-    const ERROR_REQUIRED = 'Required field.';
+    const ERROR_REQUIRED = "Required field.";
     switch (key) {
-      case 'email':
-        if (value === '') {
+      case "email":
+        if (value === "") {
           error = ERROR_REQUIRED;
         } else {
           const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i;
           if (!emailRegex.test(value)) {
-            error = 'Invalid email address';
+            error = "Invalid email address";
           }
         }
         break;
-      case 'message':
-        if (value === '') {
+      case "message":
+        if (value === "") {
           error = ERROR_REQUIRED;
         }
         break;
     }
     updateInvalids({
       [key]: error,
-    })
-    return error
+    });
+    return error;
   }
 
-{/*https://medium.com/@verdi/form-validation-in-react-2019-27bc9e39feac*/}
+  {
+    /* https://medium.com/@verdi/form-validation-in-react-2019-27bc9e39feac */
+  }
 
   return (
     <div className={styles.container}>
-
       <Box align="center">
-        <br /><br />
+        <br />
+        <br />
         <Text fontSize="6xl">
-          <h1>
-            CONTACT US
-          </h1>
+          <h1>CONTACT US</h1>
         </Text>
-        <br/><br/>
+        <br />
+        <br />
       </Box>
 
-        <form id="Form" className={styles.main}>
-
-          <FormControl
-          id="name"
-          className={styles.inputGroup}>
-            <FormLabel htmlFor='name'>Name</FormLabel>
-            <Input
-            type='text'
+      <form id="Form" className={styles.main}>
+        <FormControl id="name" className={styles.inputGroup}>
+          <FormLabel htmlFor="name">Name</FormLabel>
+          <Input
+            type="text"
             placeholder="Tell us your name..."
-            onChange={(e)=>{setValue('name', e.target.value)}}
-            name='name'/>
-          </FormControl>
-          <br/>
+            onChange={(e) => {
+              setValue("name", e.target.value);
+            }}
+            name="name"
+          />
+        </FormControl>
+        <br />
 
-          <FormControl
+        <FormControl
           id="email"
           className={styles.inputGroup}
           isInvalid={!!invalids.email}
-          isRequired>
-            <FormLabel htmlFor='email'>Email</FormLabel>
-            <Input
-            type='email'
+          isRequired
+        >
+          <FormLabel htmlFor="email">Email</FormLabel>
+          <Input
+            type="email"
             placeholder="...and your email, so we can get back to you."
-            onChange={(e)=>{setValue('email', e.target.value)}}
-            name='email'/>
-            <FormErrorMessage>{invalids.email}</FormErrorMessage>
-            <FormHelperText>We'll never share it🤚</FormHelperText>
-          </FormControl>
-          <br/>
+            onChange={(e) => {
+              setValue("email", e.target.value);
+            }}
+            name="email"
+          />
+          <FormErrorMessage>{invalids.email}</FormErrorMessage>
+          <FormHelperText>We'll never share it🤚</FormHelperText>
+        </FormControl>
+        <br />
 
-          <FormControl
+        <FormControl
           id="message"
           className={styles.inputGroup}
           isInvalid={!!invalids.message}
-          isRequired>
-            <FormLabel htmlFor='message'>Message</FormLabel>
-            <Textarea
-            type='text'
+          isRequired
+        >
+          <FormLabel htmlFor="message">Message</FormLabel>
+          <Textarea
+            type="text"
             placeholder="What do you want to share with us?"
-            onChange={(e)=>{setValue('message', e.target.value)}}
-            name='message'/>
-            <FormErrorMessage>{invalids.message}</FormErrorMessage>
-          </FormControl>
-          <br/>
+            onChange={(e) => {
+              setValue("message", e.target.value);
+            }}
+            name="message"
+          />
+          <FormErrorMessage>{invalids.message}</FormErrorMessage>
+        </FormControl>
+        <br />
 
-          <Box align="center">
-            <br/>
-            <Text
-            color="gray.400"
-            maxWidth="300px">By submitting you agree that these data will be sent via AWS servers that may be located outside the EU.</Text>
-            <Button
-              mt={4}
-              colorScheme="teal"
-              type="submit"
-              onClick={handleSubmit}>
-              Submit
-            </Button>
-            <br/><br/><br/><br/><br/><br/>
-          </Box>
-
-        </form>
+        <Box align="center">
+          <br />
+          <Text color="gray.400" maxWidth="300px">
+            By submitting you agree that these data will be sent via AWS servers
+            that may be located outside the EU.
+          </Text>
+          <Button
+            mt={4}
+            colorScheme="teal"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </Box>
+      </form>
     </div>
-  )
+  );
 }
