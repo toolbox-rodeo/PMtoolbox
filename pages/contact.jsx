@@ -205,7 +205,7 @@ export default function contact() {
             <br/>
             <Text
             color="gray.400"
-            maxWidth="300px">By submitting you agree that these data will be sent via AWS servers that may be located outside the EU.</Text>
+            maxWidth="700px">By submitting you agree that these data will be sent via AWS servers that may be located outside the EU.</Text>
             <Button
               mt={4}
               colorScheme="teal"

@@ -37,7 +37,7 @@ const [searchTerm, setSearchTerm] = useState("");
               pointerEvents="none"
               children={<SearchIcon color="gray.300"/>}
             />
-            <Input variant="outline" placeholder="Search for posts" onChange={event => {setSearchTerm(event.target.value)}}/>
+            <Input variant="outline" placeholder="Search posts or tags" onChange={event => {setSearchTerm(event.target.value)}}/>
           </InputGroup>
           </div>
 
@@ -46,10 +46,15 @@ const [searchTerm, setSearchTerm] = useState("");
               {allPosts.filter((post)=> {
                 if (searchTerm == ""){
                   return post
+                } else if (post.tagsCollection.items[0].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return post
                 } else if (post.title.toLowerCase().includes(searchTerm.toLowerCase())) {
                   return post
                 }
-               }).map((post) => (
+               })
+               .concat()
+               .sort((a, b) => a.tagsCollection.items[0].name > b.tagsCollection.items[0].name ? 1 : -1)
+               .map((post) => (
                 <PostPreview
                   key={post.slug}
                   title={post.title}
