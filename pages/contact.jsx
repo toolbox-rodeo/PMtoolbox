@@ -204,36 +204,26 @@ export default function contact() {
           <Textarea
             type="text"
             placeholder="What do you want to share with us?"
-            onChange={(e) => {
-              setValue("message", e.target.value);
-            }}
-            name="message"
-          />
-          <FormErrorMessage>{invalids.message}</FormErrorMessage>
-        </FormControl>
-        <br />
+            onChange={(e)=>{setValue('message', e.target.value)}}
+            name='message'/>
+            <FormErrorMessage>{invalids.message}</FormErrorMessage>
+          </FormControl>
+          <br/>
 
-        <Box align="center">
-          <br />
-          <Text color="gray.400" maxWidth="300px">
-            By submitting you agree that these data will be sent via AWS servers
-            that may be located outside the EU.
-          </Text>
-          <Button
-            mt={4}
-            colorScheme="teal"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Submit
-          </Button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </Box>
+          <Box align="center">
+            <br/>
+            <Text
+            color="gray.400"
+            maxWidth="700px">By submitting you agree that these data will be sent via AWS servers that may be located outside the EU.</Text>
+            <Button
+              mt={4}
+              colorScheme="teal"
+              type="submit"
+              onClick={handleSubmit}>
+              Submit
+            </Button>
+            <br/><br/><br/><br/><br/><br/>
+          </Box>
       </form>
     </div>
   );
