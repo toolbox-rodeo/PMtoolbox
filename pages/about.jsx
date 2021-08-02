@@ -73,6 +73,36 @@ function About() {
         <Image
           borderRadius="full"
           boxSize="200px"
+          src="/Oliver.png"
+          alt="Oliver"
+        />
+        </Box>
+        <Text maxWidth="400" margin="13" fontSize="l">Product person with a background in design and web development. Cares about words. Favors outcomes over outputs. Asks why for a living.</Text>
+        <Text align="center" fontSize="xl">Oliver</Text>
+        <Text fontSize="l"> <br /> </Text>
+        <Flex margin="13" justify="center" >
+            <a
+              href="https://github.com/oliverwehn"
+              target="_blank"
+              className="mx-3 hover:underline hover:text-success"
+            >
+              <img src="/github.svg" alt="Github Logo" width={32} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/oliverwehn/"
+              target="_blank"
+              className="mx-3 hover:underline hover:text-success"
+            >
+              <img src="/linkedin.svg" alt="Linkedin Logo" width={32} />
+            </a>
+        </Flex>
+        </a>
+
+        <a className={styles.card}>
+        <Box align="center">
+        <Image
+          borderRadius="full"
+          boxSize="200px"
           src="/Duong.png"
           alt="Duong"
         />
@@ -107,39 +137,8 @@ function About() {
           alt="Max"
         />
         </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Product wizard 🧙‍♂️ passionate about helping teams build kick-ass products users love to use. Helps incredible teams find and solve problems in health tech. Also codes on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
+        <Text maxWidth="400" margin="13" fontSize="l">Product wizard 🧙‍♂️ passionate about helping teams build kick-ass products users love to use. Also codes on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
         <Text align="center" fontSize="xl">Max</Text>
-
-        <Flex margin="13" justify="center" >
-            <a
-              href="https://github.com/maxra3209"
-              target="_blank"
-              className="mx-3 hover:underline hover:text-success"
-            >
-              <img src="/github.svg" alt="Github Logo" width={32} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/max-rank/"
-              target="_blank"
-              className="mx-3 hover:underline hover:text-success"
-            >
-              <img src="/linkedin.svg" alt="Linkedin Logo" width={32} />
-            </a>
-        </Flex>
-        </a>
-
-        <a className={styles.card}>
-        <Box align="center">
-        <Image
-          borderRadius="full"
-          boxSize="200px"
-          src="/Max.png"
-          alt="Oliver"
-        />
-        </Box>
-        <Text maxWidth="400" margin="13" fontSize="l">Hi! My nspend my days helping incredible teams find and solve problems in health tech. In my spare time I’m also coding on own projects - such as this - although it’s a bit of a stretch to call dirty hacking coding.</Text>
-        <Text align="center" fontSize="xl">Oliver</Text>
-        <Text fontSize="l"> <br /> </Text>
         <Flex margin="13" justify="center" >
             <a
               href="https://github.com/maxra3209"
