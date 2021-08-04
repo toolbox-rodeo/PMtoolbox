@@ -64,7 +64,6 @@ export default function contact() {
             type="text"
             placeholder="What do you want to share with us?"
             name='message'/>
-            <FormErrorMessage>{invalids.message}</FormErrorMessage>
           </FormControl>
           <br/>
 
@@ -76,8 +75,7 @@ export default function contact() {
             <Button
               mt={4}
               colorScheme="teal"
-              type="submit"
-              onClick={handleSubmit}>
+              type="submit">
               Submit
             </Button>
             <br/><br/><br/><br/><br/><br/>
