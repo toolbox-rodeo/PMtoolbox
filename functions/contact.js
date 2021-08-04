@@ -1,3 +1,4 @@
+{/*
 const nodemailer = require("nodemailer");
 
 exports.handler = async function contact(event) {
@@ -38,3 +39,5 @@ exports.handler = async function contact(event) {
       );
   });
 };
+
+*/}
