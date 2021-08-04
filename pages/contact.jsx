@@ -28,7 +28,10 @@ export default function contact() {
         <br />
       </Box>
 
-      <form id="Form" className={styles.main} data-netlify="true" name="contact">
+      <form id="Form" className={styles.main} data-netlify="true" name="contact" method="post" data-netlify-honeypot="bot-field">
+
+      <input type="hidden" name="form-name" value="contact" />
+
         <FormControl id="name" className={styles.inputGroup}>
           <FormLabel htmlFor="name">Name</FormLabel>
           <Input
