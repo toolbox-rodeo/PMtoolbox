@@ -17,7 +17,7 @@ exports.handler = async function contact(event) {
     transporter
       .sendMail({
         from: '"☁️ The Cloud ☁️" <thecloud@example.com>',
-        to: "paschalidi.chris@gmail.com",
+        to: "hello@rank.health",
         subject: "New Form Submission",
         text: event.body,
         html,

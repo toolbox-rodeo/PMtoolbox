@@ -160,7 +160,7 @@ export default function contact() {
         <br />
       </Box>
 
-      <form id="Form" className={styles.main}>
+      <form id="Form" className={styles.main} data-netlify="true">
         <FormControl id="name" className={styles.inputGroup}>
           <FormLabel htmlFor="name">Name</FormLabel>
           <Input
