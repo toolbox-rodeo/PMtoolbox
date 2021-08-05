@@ -9,16 +9,16 @@ exports.handler = async function contact(event) {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: "becomingdiga@gmail.com", // generated ethereal user
-      pass: "LafaY3Tt3!", // generated ethereal password
+      user: .env.account, // generated ethereal user
+      pass: .env.password, // generated ethereal password
     },
   });
 
   return new Promise((resolve, reject) => {
     transporter
       .sendMail({
-        from: "becomingdiga@gmail.com",
-        to: "hello@rank.health",
+        from: "the cloud",
+        to: .env.uuser,
         subject: "New Form Submission",
         text: event.body,
         html,
