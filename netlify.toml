@@ -1,2 +1,5 @@
+# Node.js version comes from .nvmrc.
+# Netlify's Next.js adapter (@netlify/plugin-nextjs) is installed automatically.
 [build]
   command = "npm run build"
+  publish = ".next"

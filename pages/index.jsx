@@ -1,18 +1,12 @@
 import Head from "next/head";
+import Script from "next/script";
 import Container from "../components/container";
 import Layout from "../components/layout";
 import { getAllPostsForHome } from "../lib/api";
 import PostPreview from "../components/post-preview";
 import CardsGrid from "../components/cards-grid";
-import {
-  Input,
-  InputLeftElement,
-  InputGroup,
-  Button,
-  Select,
-  } from "@chakra-ui/react";
+import { Input, InputLeftElement, InputGroup } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import React, { Component } from "react";
 import { useState } from "react";
 
 
@@ -25,9 +19,9 @@ const [searchTerm, setSearchTerm] = useState("");
       <Layout preview={preview}>
         <Head>
           <title>PM Toolbox</title>
-          <script type="text/javascript" src="head.js" charset="UTF-8"></script>
-          <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
         </Head>
+        {/* Google Tag Manager + iubenda cookie consent (see public/head.js) */}
+        <Script src="/head.js" strategy="afterInteractive" />
 
         <Container>
 
@@ -74,9 +68,9 @@ const [searchTerm, setSearchTerm] = useState("");
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = (await getAllPostsForHome(preview)) ?? [];
+export async function getStaticProps({ draftMode = false }) {
+  const allPosts = (await getAllPostsForHome(draftMode)) ?? [];
   return {
-    props: { preview, allPosts },
+    props: { preview: draftMode, allPosts },
   };
 }

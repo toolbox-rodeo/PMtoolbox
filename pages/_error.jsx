@@ -2,7 +2,7 @@ import {
 Button,
 Box
  } from '@chakra-ui/react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import styles from "../public/404.module.css";
 
 
@@ -20,11 +20,9 @@ function Error({ statusCode }) {
       <br/><br/>
 
       <div>
-        <Link href="/">
-          <Button>
+        <Button as={NextLink} href="/">
           Back to Earth
-          </Button>
-        </Link>
+        </Button>
       </div>
       <br/><br/><br/>
     </div>

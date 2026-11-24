@@ -17,10 +17,8 @@ function About() {
       {/* https://chakra-ui.com/docs/typography/text . somehow 2nd paragraph is not sized properly and not in same row. */}
     <Box align="center">
       <br /><br />
-      <Text fontSize="6xl">
-        <h1>
-          ABOUT THIS PROJECT
-        </h1>
+      <Text as="h1" fontSize="6xl">
+        ABOUT THIS PROJECT
       </Text>
       <br />
       <Text fontSize="l" as="i" color="grey">"A PM is only as good as their toolbox."</Text>
@@ -38,7 +36,7 @@ function About() {
 
     <Box align="center">
       <div className={styles.grid}>
-        <a className={styles.card}>
+        <div className={styles.card}>
         <Box align="center">
         <Image
           borderRadius="full"
@@ -66,9 +64,9 @@ function About() {
               <img src="/linkedin.svg" alt="Linkedin Logo" width={32} />
             </a>
         </Flex>
-        </a>
+        </div>
 
-        <a className={styles.card}>
+        <div className={styles.card}>
         <Box align="center">
         <Image
           borderRadius="full"
@@ -96,9 +94,9 @@ function About() {
               <img src="/linkedin.svg" alt="Linkedin Logo" width={32} />
             </a>
         </Flex>
-        </a>
+        </div>
 
-        <a className={styles.card}>
+        <div className={styles.card}>
         <Box align="center">
         <Image
           borderRadius="full"
@@ -126,9 +124,9 @@ function About() {
               <img src="/linkedin.svg" alt="Linkedin Logo" width={32} />
             </a>
         </Flex>
-        </a>
+        </div>
 
-        <a className={styles.card}>
+        <div className={styles.card}>
         <Box align="center">
         <Image
           borderRadius="full"
@@ -155,7 +153,7 @@ function About() {
               <img src="/linkedin.svg" alt="Linkedin Logo" width={32} />
             </a>
         </Flex>
-        </a>
+        </div>
 
       </div>
     </Box>

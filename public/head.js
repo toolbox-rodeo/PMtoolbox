@@ -67,3 +67,14 @@ _iub.csConfiguration = {
     },
   },
 }
+
+// Load the iubenda cookie solution once the configuration above is in place.
+// It used to be a second <script async> tag next to this file; loading it from
+// here keeps the order guaranteed now that next/script injects this file.
+;(function (d) {
+  var s = d.createElement('script')
+  s.src = 'https://cdn.iubenda.com/cs/iubenda_cs.js'
+  s.charset = 'UTF-8'
+  s.async = true
+  d.head.appendChild(s)
+})(document)

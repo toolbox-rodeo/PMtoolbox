@@ -1,18 +1,9 @@
-import {
-  Box,
-  Button,
-  Center,
-} from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Button, Center } from "@chakra-ui/react";
 
 function Success() {
   return(
     <div className="container">
-
-    <Box
-      backgroundImage="url('/public/Duong.png')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-    />
 
       <br /><br />
 
@@ -30,15 +21,14 @@ function Success() {
       <Center
       margin="auto"
       align="center">
-        <a
-        href="/contact">
-          <Button
-            mt={4}
-            colorScheme="teal"
-            margin="auto">
-            OK
-          </Button>
-        </a>
+        <Button
+          as={NextLink}
+          href="/contact"
+          mt={4}
+          colorScheme="teal"
+          margin="auto">
+          OK
+        </Button>
       </Center>
 
       <br /><br />

@@ -5,32 +5,22 @@ import Container from "./container";
 export default function Navbar() {
   return (
     <Box
-      borderBottomColor="#E2DDD5"
-      borderWidth="1px"
-      borderLeft="0"
-      borderRight="0"
-      borderTop="0"
+      as="header"
       background="white"
+      borderBottomWidth="1px"
+      borderBottomColor="brown.100"
     >
       <Container>
-        <Flex
-          minH="72px"
-          py={{ base: 2 }}
-          px={{ base: 4 }}
-          borderBottom={1}
-          align="center"
-        >
-          <Link href="/">
-            <a className="mx-3 lg:text-xl">Product Toolbox</a>
+        <Flex as="nav" minH="72px" align="center">
+          <Link href="/" className="mx-3 lg:text-xl">
+            Product Toolbox
           </Link>
           <Spacer />
-
-          <Spacer />
-          <Link href="/about">
-            <a className="mx-3 lg:text-xl hover:underline">About</a>
+          <Link href="/about" className="mx-3 lg:text-xl hover:underline">
+            About
           </Link>
-          <Link href="/contact">
-            <a className="mx-3 lg:text-xl hover:underline">Contact</a>
+          <Link href="/contact" className="mx-3 lg:text-xl hover:underline">
+            Contact
           </Link>
         </Flex>
       </Container>

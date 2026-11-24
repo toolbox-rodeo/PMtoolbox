@@ -42,12 +42,12 @@ export default function Post({ post, preview }) {
   );
 }
 
-export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview);
+export async function getStaticProps({ params, draftMode = false }) {
+  const data = await getPostAndMorePosts(params.slug, draftMode);
 
   return {
     props: {
-      preview,
+      preview: draftMode,
       post: data?.post ?? null,
       morePosts: data?.morePosts ?? null,
     },

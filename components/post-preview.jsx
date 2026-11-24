@@ -15,7 +15,6 @@ export default function PostPreview({
   return (
     <>
       <Link href={`/posts/${slug}`}>
-        <a>
           <Box
             p="5"
             borderWidth="1px"
@@ -44,7 +43,6 @@ export default function PostPreview({
             </Box>
             <CardIcons duration={duration} peopleNeeded={peopleNeeded} />
           </Box>
-        </a>
       </Link>
     </>
   );
