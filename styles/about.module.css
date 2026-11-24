@@ -1,6 +1,6 @@
 .grid {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 1000px;
@@ -8,6 +8,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
@@ -16,11 +18,13 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 @media screen and (max-width: 500px) {
-	.card{
-		flex-basis: 90%;
-	}
+  .card {
+    flex-basis: 90%;
+  }
 }

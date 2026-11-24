@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <!--
+      Netlify Forms blueprint.
+
+      Netlify detects forms by parsing static HTML at deploy time. Pages
+      rendered by Next.js are not reliably part of that, and the Netlify
+      Next.js adapter (v5) fails the build if it finds a `data-netlify` form
+      in a Next.js page. So the form is declared here, and pages/contact.jsx
+      POSTs its fields to this file (see the "forms" section of the Netlify
+      Next.js docs). Keep the form name and field names in sync with
+      pages/contact.jsx.
+    -->
+    <form
+      name="contact"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

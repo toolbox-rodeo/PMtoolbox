@@ -14,7 +14,6 @@
 
 # production
 /build
-/lambda
 # misc
 .DS_Store
 *.pem
@@ -31,8 +30,9 @@ yarn-error.log*
 .env.production.local
 .env.password
 
-# vercel
+# vercel / netlify
 .vercel
+.netlify
 .idea
 
 .env

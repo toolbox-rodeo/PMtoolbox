@@ -12,7 +12,9 @@ export default function Alert({ preview }) {
       <Container>
         <div className="py-2 text-center text-sm">
           <>
-            This is page is a preview.{" "}
+            This page is a preview.{" "}
+            {/* An API route needs a full page load, not client-side navigation */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a
               href="/api/exit-preview"
               className="underline hover:text-cyan duration-200 transition-colors"

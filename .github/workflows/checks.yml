@@ -1,32 +1,48 @@
-name: Linting
+name: Checks
 
 on:
   push:
-    branches:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
-  now:
+  checks:
     runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '15.x'
+      - uses: actions/checkout@v7
 
-      - uses: actions/cache@v2
-        id: yarn-cache
+      - uses: actions/setup-node@v7
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          node-version-file: .nvmrc
+          cache: npm
 
       - name: Install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install
-
-      - name: Build
-        run: yarn build
+        run: npm ci
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Test
+        run: npm test
+
+      # The build fetches all posts from Contentful, so it needs the
+      # CONTENTFUL_* repository secrets. Without them it is skipped.
+      - name: Build
+        if: env.CONTENTFUL_SPACE_ID != '' && env.CONTENTFUL_ACCESS_TOKEN != ''
+        run: npm run build
+
+      - name: Note skipped build
+        if: env.CONTENTFUL_SPACE_ID == '' || env.CONTENTFUL_ACCESS_TOKEN == ''
+        run: echo "::notice::Build skipped. Add the CONTENTFUL_SPACE_ID and CONTENTFUL_ACCESS_TOKEN repository secrets to enable it."

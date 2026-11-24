@@ -1,72 +1,75 @@
+import { useState } from "react";
 import Head from "next/head";
+import Script from "next/script";
+import { useRouter } from "next/router";
+import { Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import Container from "../components/container";
 import Layout from "../components/layout";
-import { getAllPostsForHome } from "../lib/api";
 import PostPreview from "../components/post-preview";
 import CardsGrid from "../components/cards-grid";
-import {
-  Input,
-  InputLeftElement,
-  InputGroup,
-  Button,
-  Select,
-  } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
-import React, { Component } from "react";
-import { useState } from "react";
-
+import { getAllPostsForHome } from "../lib/api";
+import { filterPosts } from "../lib/search";
 
 export default function Index({ preview, allPosts }) {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+  const posts = filterPosts(allPosts, searchTerm);
 
-const [searchTerm, setSearchTerm] = useState("");
+  // Apply ?search=… from the URL whenever it changes, e.g. after clicking a
+  // tag on a post page or when navigating back and forth between filtered
+  // views. (The query is only known once the router is ready.)
+  const searchParam = router.isReady ? (router.query.search ?? "") : null;
+  const [appliedSearchParam, setAppliedSearchParam] = useState(null);
+  if (searchParam !== appliedSearchParam) {
+    setAppliedSearchParam(searchParam);
+    if (typeof searchParam === "string") setSearchTerm(searchParam);
+  }
 
   return (
     <div style={{ background: "#F5F2F0" }}>
       <Layout preview={preview}>
         <Head>
           <title>PM Toolbox</title>
-          <script type="text/javascript" src="head.js" charset="UTF-8"></script>
-          <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
         </Head>
+        {/* Google Tag Manager + iubenda cookie consent (see public/head.js) */}
+        <Script src="/head.js" strategy="afterInteractive" />
 
         <Container>
-
-          <div>
           <InputGroup marginBottom="13">
-            <InputLeftElement
-              pointerEvents="none"
-              children={<SearchIcon color="gray.300"/>}
+            <InputLeftElement pointerEvents="none">
+              <SearchIcon color="gray.300" />
+            </InputLeftElement>
+            <Input
+              variant="outline"
+              placeholder="Search posts or tags"
+              aria-label="Search posts or tags"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
             />
-            <Input variant="outline" placeholder="Search posts or tags" onChange={event => {setSearchTerm(event.target.value)}}/>
           </InputGroup>
-          </div>
 
-          {allPosts.length > 0 && (
+          {posts.length > 0 ? (
             <CardsGrid>
-              {allPosts.filter((post)=> {
-                if (searchTerm == ""){
-                  return post
-                } else if (post.tagsCollection.items[0].name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                  return post
-                } else if (post.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-                  return post
-                }
-               })
-               .concat()
-               .sort((a, b) => a.tagsCollection.items[0].name > b.tagsCollection.items[0].name ? 1 : -1)
-               .map((post) => (
+              {posts.map((post) => (
                 <PostPreview
                   key={post.slug}
                   title={post.title}
-                  coverImage={post.coverImage}
                   slug={post.slug}
                   excerpt={post.excerpt}
                   duration={post.duration}
                   peopleNeeded={post.peopleNeeded}
                   tags={post.tagsCollection.items}
+                  onTagSelect={setSearchTerm}
                 />
               ))}
             </CardsGrid>
+          ) : (
+            searchTerm && (
+              <Text color="brown.500" textAlign="center" py={10}>
+                No posts match “{searchTerm}”.
+              </Text>
+            )
           )}
         </Container>
       </Layout>
@@ -74,9 +77,9 @@ const [searchTerm, setSearchTerm] = useState("");
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = (await getAllPostsForHome(preview)) ?? [];
+export async function getStaticProps({ draftMode = false }) {
+  const allPosts = await getAllPostsForHome(draftMode);
   return {
-    props: { preview, allPosts },
+    props: { preview: draftMode, allPosts },
   };
 }

@@ -6,17 +6,11 @@
 }
 
 .title p {
-  color: #F8F8FF;
+  color: #f8f8ff;
   text-decoration: none;
   font-size: 4rem;
   font-weight: bold;
   padding-bottom: 50px;
-}
-
-.space {
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 100px;
 }
 
 .img {
