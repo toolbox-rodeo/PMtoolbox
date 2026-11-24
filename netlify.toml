@@ -1,5 +1,13 @@
-# Node.js version comes from .nvmrc.
-# Netlify's Next.js adapter (@netlify/plugin-nextjs) is installed automatically.
 [build]
   command = "npm run build"
   publish = ".next"
+
+[build.environment]
+  # Same as .nvmrc; set here as well so a NODE_VERSION left over in the
+  # Netlify UI can't override it.
+  NODE_VERSION = "24"
+
+# Netlify's Next.js adapter. Declared explicitly (version in package.json) so
+# an older Next.js plugin version configured in the Netlify UI isn't used.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
