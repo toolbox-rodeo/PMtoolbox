@@ -1,0 +1,20 @@
+version: 2
+updates:
+  # Group routine updates into one monthly PR per ecosystem instead of a pile
+  # of individual PRs. Security updates are still raised immediately.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm-minor-and-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns: ["*"]
