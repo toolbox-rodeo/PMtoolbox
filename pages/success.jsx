@@ -1,9 +1,13 @@
+import Head from "next/head";
 import NextLink from "next/link";
 import { Button, Center } from "@chakra-ui/react";
 
 function Success() {
   return (
     <div className="container">
+      <Head>
+        <title>Message sent | PM Toolbox</title>
+      </Head>
       <br />
       <br />
 
@@ -15,7 +19,7 @@ function Success() {
         align="center"
         margin="auto"
       >
-        Message sent 👍. We'll reply soon. Enjoy your day!
+        Message sent 👍. We&apos;ll reply soon. Enjoy your day!
       </Center>
 
       <br />

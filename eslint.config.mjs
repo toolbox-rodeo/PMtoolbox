@@ -6,5 +6,12 @@ export default defineConfig([
   ...nextCoreWebVitals,
   // Formatting is Prettier's job; turn off rules that would conflict with it.
   prettier,
+  {
+    rules: {
+      // Images are small static icons/GIFs and CMS images of unknown size;
+      // next/image would not optimise either of them.
+      "@next/next/no-img-element": "off",
+    },
+  },
   globalIgnores([".next/", "node_modules/", ".playwright-mcp/"]),
 ]);

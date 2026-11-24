@@ -34,6 +34,9 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
+      - name: Test
+        run: npm test
+
       # The build fetches all posts from Contentful, so it needs the
       # CONTENTFUL_* repository secrets. Without them it is skipped.
       - name: Build

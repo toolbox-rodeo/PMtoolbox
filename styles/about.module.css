@@ -1,6 +1,6 @@
 .grid {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 1000px;
@@ -8,6 +8,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;

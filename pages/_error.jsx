@@ -1,31 +1,8 @@
-import { Button, Box } from "@chakra-ui/react";
-import NextLink from "next/link";
-import styles from "../public/404.module.css";
+import LostInSpace from "../components/lost-in-space";
 
+// Server errors (404s are handled by pages/404.jsx).
 function Error({ statusCode }) {
-  return (
-    <Box align="center" backgroundColor="black">
-      <div className={styles.title}>
-        <p>
-          <img src="/404.gif" alt="Laika in Space" className={styles.img} />
-          {statusCode
-            ? `Seems like you're lost in ${statusCode}`
-            : "Seems like you are lost in"}
-        </p>
-        <br />
-        <br />
-
-        <div>
-          <Button as={NextLink} href="/">
-            Back to Earth
-          </Button>
-        </div>
-        <br />
-        <br />
-        <br />
-      </div>
-    </Box>
-  );
+  return <LostInSpace statusCode={statusCode} />;
 }
 
 Error.getInitialProps = ({ res, err }) => {

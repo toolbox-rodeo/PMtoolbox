@@ -1,4 +1,3 @@
-/* eslint-disable */
 const spaceImport = require("contentful-import");
 const exportFile = require("./export.json");
 

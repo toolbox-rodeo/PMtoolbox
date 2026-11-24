@@ -30,8 +30,9 @@ yarn-error.log*
 .env.production.local
 .env.password
 
-# vercel
+# vercel / netlify
 .vercel
+.netlify
 .idea
 
 .env

@@ -1,24 +1,21 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import markdownStyles from "../public/markdown-styles.module.css";
+import markdownStyles from "../styles/markdown-styles.module.css";
 
 function renderOptions(links) {
-  const assetMap = new Map();
-  for (const asset of links.assets.block) {
-    assetMap.set(asset.sys.id, asset);
-  }
+  const assets = new Map(
+    (links?.assets?.block ?? []).map((asset) => [asset.sys.id, asset]),
+  );
 
   return {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const asset = assetMap.get(node.data.target.sys.id);
+        const asset = assets.get(node.data.target.sys.id);
+        if (!asset) return null;
 
-        return <img src={asset.url} alt="My image alt text" />;
-      },
-      [BLOCKS.LIST_ITEM]: (node, children) => {
-        const UnTaggedChildren = documentToReactComponents(node);
-
-        return <li>{UnTaggedChildren}</li>;
+        return (
+          <img src={asset.url} alt={asset.description || asset.title || ""} />
+        );
       },
     },
   };

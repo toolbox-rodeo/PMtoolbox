@@ -10,10 +10,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "setup": "node ./contentful/setup.js $CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN",
     "lint": "eslint .",
+    "test": "node --test",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "setup": "node ./contentful/setup.js $CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.2.6",

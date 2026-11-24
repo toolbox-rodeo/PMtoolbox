@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import {
   Box,
@@ -10,7 +11,7 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import styles from "../public/contact.module.css";
+import styles from "../styles/contact.module.css";
 
 // Netlify Forms picks up submissions that are POSTed to a static file. The
 // form itself is declared in public/__forms.html; keep the field names in sync.
@@ -43,6 +44,9 @@ export default function Contact() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Contact | PM Toolbox</title>
+      </Head>
       <Box align="center">
         <br />
         <br />
@@ -74,7 +78,7 @@ export default function Contact() {
             placeholder="...and your email, so we can get back to you."
             name="email"
           />
-          <FormHelperText>We'll never share it🤚</FormHelperText>
+          <FormHelperText>We&apos;ll never share it🤚</FormHelperText>
         </FormControl>
         <br />
 

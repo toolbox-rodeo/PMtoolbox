@@ -1,7 +1,6 @@
-import { Box, Heading, Badge, Text } from "@chakra-ui/react";
-
+import { Box, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { badgeColors } from "./constants";
+import TagList from "./tag-list";
 import CardIcons from "./card-icons";
 
 export default function PostPreview({
@@ -13,37 +12,24 @@ export default function PostPreview({
   tags = [],
 }) {
   return (
-    <>
-      <Link href={`/posts/${slug}`}>
-        <Box
-          p="5"
-          borderWidth="1px"
-          borderColor="brown.100"
-          rounded="md"
-          boxShadow="0px 1px 0px #E2DDD5"
-          background="white"
-        >
-          <Heading size="md" mb="1">
-            {title}
-          </Heading>
-          <Box mb={6}>
-            {tags.map(({ name, hex }) => (
-              <Badge
-                key={name}
-                mr={1}
-                variant="subtle"
-                colorScheme={badgeColors[hex]}
-              >
-                {name}
-              </Badge>
-            ))}
-          </Box>
-          <Box>
-            <Text fontSize="sm">{excerpt}</Text>
-          </Box>
-          <CardIcons duration={duration} peopleNeeded={peopleNeeded} />
+    <Link href={`/posts/${slug}`}>
+      <Box
+        p="5"
+        borderWidth="1px"
+        borderColor="brown.100"
+        rounded="md"
+        boxShadow="0px 1px 0px #E2DDD5"
+        background="white"
+      >
+        <Heading size="md" mb="1">
+          {title}
+        </Heading>
+        <Box mb={6}>
+          <TagList tags={tags} />
         </Box>
-      </Link>
-    </>
+        <Text fontSize="sm">{excerpt}</Text>
+        <CardIcons duration={duration} peopleNeeded={peopleNeeded} />
+      </Box>
+    </Link>
   );
 }

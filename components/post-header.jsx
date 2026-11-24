@@ -1,6 +1,6 @@
-import { Badge, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import PostTitle from "./post-title";
-import { badgeColors } from "./constants";
+import TagList from "./tag-list";
 import CardIcons from "./card-icons";
 
 export default function PostHeader({ title, tags, duration, peopleNeeded }) {
@@ -8,16 +8,7 @@ export default function PostHeader({ title, tags, duration, peopleNeeded }) {
     <>
       <PostTitle>{title}</PostTitle>
       <Box mb={6}>
-        {tags.map(({ name, hex }) => (
-          <Badge
-            key={name}
-            mr={1}
-            variant="subtle"
-            colorScheme={badgeColors[hex]}
-          >
-            {name}
-          </Badge>
-        ))}
+        <TagList tags={tags} />
         <CardIcons duration={duration} peopleNeeded={peopleNeeded} />
       </Box>
     </>
