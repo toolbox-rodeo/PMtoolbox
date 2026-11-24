@@ -1,4 +1,3 @@
-import styles from "../public/success.module.css";
 import {
   Box,
   Button,
