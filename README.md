@@ -68,7 +68,8 @@ CI (`.github/workflows/checks.yml`) runs lint, format check, tests and — if th
 
 ## Deployment
 
-Netlify builds the `main` branch with `npm run build` (see `netlify.toml`) and
-picks up the Node.js version from `.nvmrc`. Netlify installs its Next.js adapter
-automatically. The Contentful variables above have to be set in the Netlify
-site settings.
+Netlify builds the `main` branch (and a deploy preview for every PR) with
+`npm run build`. `netlify.toml` pins Node.js 24 (same as `.nvmrc`) and Netlify's
+Next.js adapter, `@netlify/plugin-nextjs`, whose version comes from
+`package.json` (updated by Dependabot). The Contentful variables above have to
+be set in the Netlify site settings.
