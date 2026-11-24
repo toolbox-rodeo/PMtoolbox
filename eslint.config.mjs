@@ -13,5 +13,5 @@ export default defineConfig([
       "@next/next/no-img-element": "off",
     },
   },
-  globalIgnores([".next/", "node_modules/", ".playwright-mcp/"]),
+  globalIgnores([".next/", "node_modules/"]),
 ]);
