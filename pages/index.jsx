@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import Script from "next/script";
+import { useRouter } from "next/router";
 import { Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import Container from "../components/container";
@@ -11,8 +12,19 @@ import { getAllPostsForHome } from "../lib/api";
 import { filterPosts } from "../lib/search";
 
 export default function Index({ preview, allPosts }) {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const posts = filterPosts(allPosts, searchTerm);
+
+  // Apply ?search=… from the URL whenever it changes, e.g. after clicking a
+  // tag on a post page or when navigating back and forth between filtered
+  // views. (The query is only known once the router is ready.)
+  const searchParam = router.isReady ? (router.query.search ?? "") : null;
+  const [appliedSearchParam, setAppliedSearchParam] = useState(null);
+  if (searchParam !== appliedSearchParam) {
+    setAppliedSearchParam(searchParam);
+    if (typeof searchParam === "string") setSearchTerm(searchParam);
+  }
 
   return (
     <div style={{ background: "#F5F2F0" }}>
@@ -48,6 +60,7 @@ export default function Index({ preview, allPosts }) {
                   duration={post.duration}
                   peopleNeeded={post.peopleNeeded}
                   tags={post.tagsCollection.items}
+                  onTagSelect={setSearchTerm}
                 />
               ))}
             </CardsGrid>

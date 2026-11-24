@@ -56,7 +56,8 @@ CI (`.github/workflows/checks.yml`) runs lint, format check, tests and — if th
   Contentful's preview URL) to see draft content; `/api/exit-preview` leaves
   preview mode.
 - **Tags** are Contentful entries with a `name` and a `hex` colour. The hex code
-  is mapped to a Chakra colour scheme in `components/constants.jsx`.
+  is mapped to a Chakra colour scheme in `components/constants.jsx`. Clicking a
+  tag shows all posts with that tag (`/?search=<tag>`).
 - **Contact form**: handled by [Netlify Forms](https://docs.netlify.com/forms/setup/).
   The form is declared in `public/__forms.html` (Netlify's Next.js adapter
   requires forms to live in a static file) and `pages/contact.jsx` posts to it.
