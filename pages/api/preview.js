@@ -25,6 +25,6 @@ export default async function preview(req, res) {
   const url = `/posts/${encodeURIComponent(post.slug)}`;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   return res.end(
-    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=${url}" /><script>window.location.href = '${url}'</script></head></html>`
+    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=${url}" /><script>window.location.href = '${url}'</script></head></html>`,
   );
 }

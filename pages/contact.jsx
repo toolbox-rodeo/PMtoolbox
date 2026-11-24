@@ -90,8 +90,8 @@ export default function Contact() {
         <Box align="center">
           <br />
           <Text color="gray.400" maxWidth="700px">
-            By submitting you agree that these data will be sent via AWS
-            servers that may be located outside the EU.
+            By submitting you agree that these data will be sent via AWS servers
+            that may be located outside the EU.
           </Text>
           {status === "error" && (
             <Text color="red.500" mt={4} role="alert">

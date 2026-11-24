@@ -16,14 +16,10 @@ function renderOptions(links) {
         return <img src={asset.url} alt="My image alt text" />;
       },
       [BLOCKS.LIST_ITEM]: (node, children) => {
-        const UnTaggedChildren = documentToReactComponents(node)
+        const UnTaggedChildren = documentToReactComponents(node);
 
-        return (
-          <li>
-            {UnTaggedChildren}
-          </li>
-        )
-      }
+        return <li>{UnTaggedChildren}</li>;
+      },
     },
   };
 }
